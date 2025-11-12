@@ -1,7 +1,6 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+# GitHub Actions Workflow: Auto-translate repository using LibreTranslate
 
-name: Python application
+name: Translate Repository
 
 on:
   push:
@@ -18,6 +17,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    services:
+      libretranslate:
+        image: libretranslate/libretranslate:latest
+        ports:
+          - 5000:5000
+        env:
+          LT_LOAD_ONLY: "en,es,gl"   # Only load English, Spanish, and Galician models
+        options: >-
+          --health-cmd="curl -f http://localhost:5000/health || exit 1"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -27,7 +39,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python 3.10
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: "3.10"
 
@@ -36,20 +48,37 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+      - name: Wait for LibreTranslate service to be ready
+        run: |
+          echo "Waiting for LibreTranslate to become available..."
+          for i in {1..20}; do
+            if curl -s http://localhost:5000/health | grep -q '"status":"ok"'; then
+              echo "LibreTranslate is ready!"
+              break
+            fi
+            echo "Still waiting... ($i)"
+            sleep 5
+          done
+
       - name: Run translation script
         env:
           TARGET_LANG: es
+          LOCAL_LIBRE: "1"
+          LIBRE_API_KEY: ""  # Not needed for local instance
         run: |
           echo "Translating repository..."
-          python todos/translate_repo.py
+          python translations/translate_repo.py
 
-      - name: Commit and push changes
-          # Configure Git user identity for the commit.
-          # This uses the official GitHub Actions bot account.
-          # [skip ci] prevents infinite loop of actions
+      - name: Commit and push translated files
+        # Configure Git user identity for the commit.
+        # This uses the official GitHub Actions bot account.
+        # [skip ci] prevents infinite loop of actions
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          # create the branch if it doesn't exist (or switch to it)
+          git checkout -B auto/translate/es
           git add .
           git commit -m "Auto-translate repository [skip ci]" || echo "No changes to commit"
-          git push
+          # push the new branch
+          git push -u origin auto/translate/es
