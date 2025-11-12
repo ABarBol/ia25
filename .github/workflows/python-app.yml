@@ -28,9 +28,9 @@ jobs:
           LT_NO_CACHE: "1"           # Disable caching to reduce memory usage
         options: >-
           --health-cmd="curl -fs http://localhost:5000/health || exit 1"
-          --health-interval=30s
-          --health-timeout=10s
-          --health-retries=10
+          --health-interval=60s
+          --health-timeout=20s
+          --health-retries=60
 
     steps:
       - name: Ensure curl is available
@@ -55,8 +55,8 @@ jobs:
 
       - name: Wait for LibreTranslate service to be ready
         run: |
-          echo "Waiting for LibreTranslate to start..."
-          for i in {1..40}; do
+          echo "Waiting for LibreTranslate to start (up to 60 minutes)..."
+          for i in {1..360}; do
             if curl -s http://localhost:5000/health | grep -q '"status":"ok"'; then
               echo "LibreTranslate is ready!"
               break
