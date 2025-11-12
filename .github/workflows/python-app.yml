@@ -108,4 +108,5 @@ jobs:
           git checkout -B auto/translate/es
           git add .
           git commit -m "Auto-translate repository [skip ci]" || echo "No changes to commit"
-          git push -u origin auto/translate/es
+          git push -f origin auto/translate/es
+
