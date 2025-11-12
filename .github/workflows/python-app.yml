@@ -1,47 +1,87 @@
-# GitHub Actions Workflow: Auto-translate repository using LibreTranslate
+# GitHub Actions workflow: Automatic repository translation using LibreTranslate
+# Trigger: push and pull_request events on the 'develop' branch
 
 name: Translate Repository
 
 on:
   push:
-    # branches: [ "master" ]
     branches: ["develop"]
   pull_request:
-    # branches: [ "master" ]
     branches: ["develop"]
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  translate:
     runs-on: ubuntu-latest
-
-    services:
-      libretranslate:
-        image: libretranslate/libretranslate:latest
-        ports:
-          - 5000:5000
-        env:
-          LT_LOAD_ONLY: "en,es,gl"   # Only load English, Spanish, and Galician models
-          LT_DISABLE_FILES: "1"      # Disable file translation (saves memory)
-          LT_NO_CACHE: "1"           # Disable caching to reduce memory usage
-        options: >-
-          --health-cmd="curl -fs http://localhost:5000/health || exit 1"
-          --health-interval=60s
-          --health-timeout=20s
-          --health-retries=60
+    timeout-minutes: 90
 
     steps:
-      - name: Ensure curl is available
-        run: sudo apt-get update && sudo apt-get install -y curl
-
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Set up Docker build cache
+        uses: actions/cache@v4
         with:
-          # The GITHUB_TOKEN is an automatically generated token provided by GitHub Actions.
-          # It gives this workflow permission to read and write to your repository.
-          token: ${{ secrets.GITHUB_TOKEN }}
+          path: /tmp/.docker-cache
+          key: ${{ runner.os }}-docker-cache-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-docker-cache-
+
+      - name: Install curl
+        run: sudo apt-get update && sudo apt-get install -y curl
+
+      - name: Pull LibreTranslate image (cached)
+        run: |
+          mkdir -p /tmp/.docker-cache
+          docker pull libretranslate/libretranslate:latest || true
+
+      - name: Start LibreTranslate container
+        id: libre
+        run: |
+          echo "Starting LibreTranslate container..."
+          docker run -d --name libretranslate \
+            -p 5000:5000 \
+            -e LT_LOAD_ONLY="en,es,gl" \
+            -e LT_DISABLE_WEB_UI=true \
+            -e LT_DISABLE_FILES=1 \
+            -e LT_NO_CACHE=1 \
+            libretranslate/libretranslate:latest
+
+          echo "Waiting for LibreTranslate to become healthy (up to 4 minutes)..."
+          for i in {1..24}; do
+            if curl -fs http://localhost:5000/health | grep -q '"status":"ok"'; then
+              echo "LibreTranslate is ready."
+              break
+            fi
+            echo "Waiting for health check ($i/24)..."
+            sleep 10
+          done
+
+          # If still not responding, attempt a single restart
+          if ! curl -fs http://localhost:5000/health | grep -q '"status":"ok"'; then
+            echo "Health check failed; restarting LibreTranslate container."
+            docker rm -f libretranslate || true
+            docker run -d --name libretranslate \
+              -p 5000:5000 \
+              -e LT_LOAD_ONLY="en,es,gl" \
+              -e LT_DISABLE_WEB_UI=true \
+              -e LT_DISABLE_FILES=1 \
+              -e LT_NO_CACHE=1 \
+              libretranslate/libretranslate:latest
+            sleep 120
+          fi
+
+          echo "Showing recent container logs..."
+          docker logs libretranslate | tail -n 40
+
+      - name: Test translation (EN → ES)
+        run: |
+          echo "Testing LibreTranslate API (en → es)..."
+          curl -s -X POST http://localhost:5000/translate \
+            -H "Content-Type: application/json" \
+            -d '{"q":"hello world","source":"en","target":"es"}' || true
 
       - name: Set up Python 3.10
         uses: actions/setup-python@v4
@@ -53,42 +93,19 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Wait for LibreTranslate service to be ready
-        run: |
-          echo "Waiting for LibreTranslate to start (up to 60 minutes)..."
-          for i in {1..360}; do
-            if curl -s http://localhost:5000/health | grep -q '"status":"ok"'; then
-              echo "LibreTranslate is ready!"
-              break
-            fi
-            echo "Still waiting... ($i)"
-            sleep 10
-          done
-
-      - name: Show LibreTranslate logs (for debugging)
-        run: |
-          echo "=== LibreTranslate container logs ==="
-          docker logs $(docker ps -qf "ancestor=libretranslate/libretranslate") || true
-
       - name: Run translation script
         env:
           TARGET_LANG: es
           LOCAL_LIBRE: "1"
-          LIBRE_API_KEY: ""  # Not needed for local instance
         run: |
-          echo "Translating repository..."
+          echo "Running repository translation script..."
           python translations/translate_repo.py
 
       - name: Commit and push translated files
-        # Configure Git user identity for the commit.
-        # This uses the official GitHub Actions bot account.
-        # [skip ci] prevents infinite loop of actions
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          # create the branch if it doesn't exist (or switch to it)
           git checkout -B auto/translate/es
           git add .
           git commit -m "Auto-translate repository [skip ci]" || echo "No changes to commit"
-          # push the new branch
           git push -u origin auto/translate/es
