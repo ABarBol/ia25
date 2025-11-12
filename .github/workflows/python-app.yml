@@ -24,13 +24,18 @@ jobs:
           - 5000:5000
         env:
           LT_LOAD_ONLY: "en,es,gl"   # Only load English, Spanish, and Galician models
+          LT_DISABLE_FILES: "1"      # Disable file translation (saves memory)
+          LT_NO_CACHE: "1"           # Disable caching to reduce memory usage
         options: >-
-          --health-cmd="curl -f http://localhost:5000/health || exit 1"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=5
+          --health-cmd="curl -fs http://localhost:5000/health || exit 1"
+          --health-interval=30s
+          --health-timeout=10s
+          --health-retries=10
 
     steps:
+      - name: Ensure curl is available
+        run: sudo apt-get update && sudo apt-get install -y curl
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
@@ -50,15 +55,20 @@ jobs:
 
       - name: Wait for LibreTranslate service to be ready
         run: |
-          echo "Waiting for LibreTranslate to become available..."
-          for i in {1..20}; do
+          echo "Waiting for LibreTranslate to start..."
+          for i in {1..40}; do
             if curl -s http://localhost:5000/health | grep -q '"status":"ok"'; then
               echo "LibreTranslate is ready!"
               break
             fi
             echo "Still waiting... ($i)"
-            sleep 5
+            sleep 10
           done
+
+      - name: Show LibreTranslate logs (for debugging)
+        run: |
+          echo "=== LibreTranslate container logs ==="
+          docker logs $(docker ps -qf "ancestor=libretranslate/libretranslate") || true
 
       - name: Run translation script
         env:
