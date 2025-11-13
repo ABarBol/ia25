@@ -24,7 +24,7 @@
     - [Example: DataFrame from different structures](./pandas/df_from_structures.ipynb)
 
 
-### [Tic-Tac-Toe Example (basics/minimax/oop/qlearning)](https://github.com/avidaldo/python-tic-tac-toe))
+### [Tic-Tac-Toe Example (basics/minimax/oop/qlearning)](https://github.com/avidaldo/python-tic-tac-toe)
 
 
 ### Classic Algorithms of Machine Learning
@@ -35,12 +35,10 @@
 - [K-means](./algorithms/kmeans.ipynb)
 - [K-Nearest Neighbors (KNN)](./algorithms/knn.md)
 - [Decision Trees](./algorithms/decision_tree.ipynb)
-- [Q-Learning](./algorithms/q_learning.ipynb)
+- [Q-Learning](./qlearning/q_learning.ipynb)
   - [Frozen Lake Example](./qlearning/frozen_lake.ipynb)
 - [Random Forests](./algorithms/random_forest.ipynb)
   
-
-
 
 
 ## Resources
