@@ -35,7 +35,7 @@
 - [K-means](./algorithms/kmeans.ipynb)
 - [K-Nearest Neighbors (KNN)](./algorithms/knn.md)
 - [Decision Trees](./algorithms/decision_tree.ipynb)
-- [Q-Learning](./qlearning/q_learning.ipynb)
+- [Q-Learning](./qlearning/qlearning.ipynb)
   - [Frozen Lake Example](./qlearning/frozen_lake.ipynb)
 - [Random Forests](./algorithms/random_forest.ipynb)
   
