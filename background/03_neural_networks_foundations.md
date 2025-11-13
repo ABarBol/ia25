@@ -110,10 +110,6 @@ The most common optimization algorithm used to train neural networks is **Gradie
     -   The gradient of the loss with respect to each parameter is calculated.
     -   The parameters are updated by taking a small step in the opposite direction of the gradient.
 
-3.  **Variants**:
-    -   **Batch Gradient Descent**: Uses the entire dataset to compute the gradient at each step. It's slow and memory-intensive for large datasets.
-    -   **Stochastic Gradient Descent (SGD)**: Uses a single randomly selected data point to compute the gradient at each step. It's much faster but can be noisy.
-    -   ***Mini-batch Gradient Descent***: A compromise between the two. It uses a small, random batch of data to compute the gradient. This is the most common approach in deep learning.
 
 ## ***Backpropagation***
 

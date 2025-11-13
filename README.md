@@ -24,6 +24,25 @@
     - [Example: DataFrame from different structures](./pandas/df_from_structures.ipynb)
 
 
+### [Tic-Tac-Toe Example (basics/minimax/oop/qlearning)](https://github.com/avidaldo/python-tic-tac-toe))
+
+
+### Classic Algorithms of Machine Learning
+
+- [Timeline of Key Algorithms](./algorithms/00_introduction.md)
+- [Linear Regression](./algorithms/linear_regression.ipynb)
+- [Logistic Regression](./algorithms/logistic_regression.ipynb)
+- [K-means](./algorithms/kmeans.ipynb)
+- [K-Nearest Neighbors (KNN)](./algorithms/knn.md)
+- [Decision Trees](./algorithms/decision_tree.ipynb)
+- [Q-Learning](./algorithms/q_learning.ipynb)
+  - [Frozen Lake Example](./qlearning/frozen_lake.ipynb)
+- [Random Forests](./algorithms/random_forest.ipynb)
+  
+
+
+
+
 ## Resources
 
 - [Previous Year Repository](https://github.com/avidaldo/ia24)
