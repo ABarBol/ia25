@@ -17,6 +17,11 @@ Why is matrix multiplication so important in AI?
 
 - Any PR in current will be appreciated!
 
+### Classic AI examples
+
+- Alpha-Beta pruning implementation for Tic-Tac-Toe with explanation of how it improves minimax algorithm; or with other more suitable games/problems.
+- Monte Carlo Tree Search.
+
 ### Machine Learning Examples
 
 - Implement a simple linear regression model from scratch.
