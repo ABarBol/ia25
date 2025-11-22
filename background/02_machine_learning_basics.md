@@ -1,66 +1,66 @@
-# Machine Learning Paradigms
+# Paradigmas de aprendizaje automático
 
-Machine learning enables systems to learn from data, identify patterns, and make decisions with minimal human intervention. Unlike traditional programming, where programs are designed with explicit rules, ML builds models by learning from data.
+El aprendizaje automático permite a los sistemas aprender de datos, identificar patrones y tomar decisiones con mínima intervención humana. A diferencia de la programación tradicional, donde los programas están diseñados con reglas explícitas, ML construye modelos aprendiendo de datos.
 
-> [Models to understand a chaotic reality | DotCSV](https://www.youtube.com/watch?v=Sb8XVheowVQ)
+> [Modelos para entender una realidad caótica](https://www.youtube.com/watch?v=Sb8XVheowVQ)
 
-A **model** is an abstract, articulated description of a reality. In machine learning, models are what we **train** with data using a learning algorithm. The model learns to adjust itself to a large number of examples and is then used to predict the correct response for new, unseen input data.
+Un **modelo** es una descripción abstracta y articulada de una realidad. En el aprendizaje automático, los modelos son lo que **entren** con datos usando un algoritmo de aprendizaje. El modelo aprende a ajustarse a un gran número de ejemplos y luego se utiliza para predecir la respuesta correcta para nuevos datos de entrada no vistos.
 
-The way a model learns is defined by its learning paradigm, which is classified based on the type of supervision or feedback it receives during training.
+La forma en que un modelo aprende se define por su paradigma de aprendizaje, que se clasifica según el tipo de supervisión o retroalimentación que recibe durante el entrenamiento.
 
 ![ML paradigms](./img/ml_paradigms.jpg)
 
-> [What is Supervised and Unsupervised Learning? | DotCSV](https://www.youtube.com/watch?v=oT3arRRB2Cw)
+> [¿Qué es el aprendizaje supervisado y no supervisado? Silencio](https://www.youtube.com/watch?v=oT3arRRB2Cw)
 
 <img src="img/tipos-ml-clasico.jpg" width="400">
 
-## Supervised Learning
+## Enseñanza supervisada
 
-In supervised learning, the training dataset is **labeled with the correct answer**. The learning algorithm receives a set of training data and, knowing the correct answer for each example, infers a model that generates that answer.
+En el aprendizaje supervisado, el conjunto de datos de entrenamiento es **marcado con la respuesta correcta**. El algoritmo de aprendizaje recibe un conjunto de datos de entrenamiento y, sabiendo la respuesta correcta para cada ejemplo, infiere un modelo que genera esa respuesta.
 
 <img src="img/reglas_vs_ml.jpg" width="500">
 
-### Classification
+### Clasificación
 
-A typical supervised learning task is **classification**. Consider a spam filter: an algorithm can learn by examining many examples of emails already labeled as "spam" or "not spam." It might infer that certain words are almost always associated with spam, while emails from specific senders are never spam. The more labeled examples the algorithm is trained on, the better it becomes at filtering spam.
+Una tarea típica de aprendizaje supervisada es **clasificación**. Considere un filtro de spam: un algoritmo puede aprender examinando muchos ejemplos de correos electrónicos ya etiquetados como "spam" o "no spam". Puede inferir que ciertas palabras están casi siempre asociadas con el spam, mientras que los correos electrónicos de destinatarios específicos nunca son spam. Los ejemplos más etiquetados en los que se entrena el algoritmo, mejor se convierte en el filtro de spam.
 
-Another example is handwritten digit recognition, where the algorithm receives images of digits and must classify them from 0 to 9.
+Otro ejemplo es el reconocimiento manual de dígitos, donde el algoritmo recibe imágenes de dígitos y debe clasificarlos de 0 a 9.
 
-Types of classification:
-- **Binary**: The output has two classes (e.g., spam/not spam, positive/negative).
-- **Multiclass**: The output has more than two classes (e.g., digit recognition, image classification).
-- **Multilabel**: An instance can be assigned multiple labels (e.g., tagging music with genres).
+Tipos de clasificación:
+- **Binario**: La salida tiene dos clases (por ejemplo, spam/no spam, positivo/negativo).
+- **Multiclass**: La salida tiene más de dos clases (por ejemplo, reconocimiento digital, clasificación de imágenes).
+- *Multilabel* Una instancia puede ser asignada múltiples etiquetas (por ejemplo, etiquetando música con géneros).
 
-### Regression
+### Regreso
 
-In **regression** problems, the goal is to predict a **continuous value**. For example, predicting the price of a house based on its features (number of rooms, garden size, location, etc.). In this case, instead of a class label, each example is labeled with a numerical value (the price of the house).
+En ** problemas de regresión**, el objetivo es predecir un **valor continuo**. Por ejemplo, predecir el precio de una casa basado en sus características (número de habitaciones, tamaño del jardín, ubicación, etc.). En este caso, en lugar de una etiqueta de clase, cada ejemplo se etiqueta con un valor numérico (el precio de la casa).
 
-## Unsupervised Learning
+## Aprendizaje no supervisado
 
-In unsupervised learning, the training dataset is **not labeled**. The goal is to discover hidden patterns or intrinsic structures in the data.
+En el aprendizaje no supervisado, el conjunto de datos de entrenamiento es **no etiquetado**. El objetivo es descubrir patrones ocultos o estructuras intrínsecas en los datos.
 
-[![](img/classification_vs_clustering.jpeg)](https://www.linkedin.com/pulse/supervised-vs-unsupervised-learning-whats-difference-smriti-saini)
+[XPHXIMG0XPHX](https://www.linkedin.com/pulse/supervised-vs-unsupervised-learning-whats-difference-smriti-saini)
 
-[<img src="img/classificatio_vs_clustering2.png" width="500">](https://www.researchgate.net/figure/Supervised-and-unsupervised-machine-learning-a-Schematic-representation-of-an_fig3_351953193)
+[XPHXTAG0XPHX](https://www.researchgate.net/figure/Supervised-and-unsupervised-machine-learning-a-Schematic-representation-of-an_fig3_351953193)
 
 ### Clustering
 
-**Clustering** involves grouping data points into clusters based on similarity. An example is customer segmentation, where customers are grouped into similar segments to better tailor products and services. This is used in recommendation systems, marketing, and more.
+**Clustering** implica agrupar puntos de datos en grupos basados en la similitud. Un ejemplo es la segmentación del cliente, donde los clientes se agrupan en segmentos similares a productos y servicios más adaptados. Esto se utiliza en sistemas de recomendación, marketing y más.
 
 ### Association Rule Mining
 
-While clustering groups instances (like customers), **association rule mining** discovers relationships between items. For example, identifying that customers who buy bread also tend to buy butter ("market basket analysis").
+Mientras grupos de agrupación instancias (como clientes), **la política de asociación minera** descubre relaciones entre los artículos. Por ejemplo, identificar que los clientes que compran pan también tienden a comprar mantequilla ("análisis de la cesta del mercado").
 
-### Dimensionality Reduction
+### Reducción de la dimensión
 
-**Dimensionality reduction** aims to reduce the number of variables (features) in a dataset. This is useful when dealing with high-dimensional data where some features may be redundant or irrelevant. It can reduce training time and improve model accuracy. A common technique is **Principal Component Analysis (PCA)**.
+**Reducción de la dimensión** tiene como objetivo reducir el número de variables (características) en un conjunto de datos. Esto es útil cuando se trata de datos de alta dimensión donde algunas características pueden ser redundantes o irrelevantes. Puede reducir el tiempo de entrenamiento y mejorar la precisión del modelo. Una técnica común es **Análisis del componente principal (PCA)**.
 
-### Anomaly Detection
+### Detección de anomalías
 
-This task focuses on identifying unusual data points or patterns that deviate significantly from the norm. It is used in fraud detection, system monitoring, and security to flag data that could indicate errors or attacks.
+Esta tarea se centra en identificar puntos o patrones de datos inusuales que se desvían significativamente de la norma. Se utiliza en detección de fraudes, monitoreo de sistemas y seguridad para marcar datos que podrían indicar errores o ataques.
 
 ## Reinforcement Learning
 
-In **reinforcement learning**, an **agent** learns by interacting with an **environment**. The agent performs actions, and the environment provides feedback in the form of **rewards** or **penalties**. The agent's goal is to learn a **policy** (a strategy for choosing actions) that maximizes its cumulative reward over time.
+En ** aprendizaje de refuerzo**, un **agente** aprende interactuando con un **ambiente**. El agente realiza acciones, y el medio ambiente proporciona comentarios en forma de **rewards** o **penalties**. El objetivo del agente es aprender una **política** (una estrategia para elegir acciones) que maximice su recompensa acumulativa con el tiempo.
 
-This paradigm is found in robotics (e.g., teaching a robot to walk) and games (e.g., training an AI to play chess or Go).
+Este paradigma se encuentra en robótica (por ejemplo, enseñar a un robot a caminar) y juegos (por ejemplo, entrenar una AI para jugar ajedrez o Go).

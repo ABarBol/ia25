@@ -1,80 +1,80 @@
-# uv Tutorial: A Fast Python Package Installer and Resolver
+# tutorial uv: un instalador de paquetes rápido de pitón y resolver
 
-`uv` is an extremely fast Python package installer and resolver, written in Rust. It is designed as a drop-in replacement for `pip` and `venv`.
+`uv` es un instalador y resolución de paquetes Python extremadamente rápido, escrito en Rust. Está diseñado como un reemplazo para `pip` y `venv`.
 
-## 1. Installation
+## 1. Instalación
 
-You can install `uv` using `curl` on macOS and Linux, or `pip` if you already have Python installed.
+Puede instalar `uv` utilizando `curl` en macOS y Linux, o `pip` si ya tiene instalado Python.
 
 **Using curl (macOS, Linux):**
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-**Using PowerShell (Windows):**
+**Usando PowerShell (Windows):**
 ```powershell
 irm https://astral.sh/uv/install.ps1 | iwr
 ```
 
-**Using pip:**
+*Using pip*
 ```bash
 pip install uv
 ```
 
-Verify the installation:
+Verificar la instalación:
 ```bash
 uv --version
 ```
 
-## 2. Managing Virtual Environments
+## 2. Gestión de los entornos virtuales
 
-`uv` integrates virtual environment management, similar to `venv`.
+`uv` integra la gestión del medio ambiente virtual, similar a `venv`.
 
-### Create a Virtual Environment
+### Crear un entorno virtual
 
-To create a new virtual environment, use `uv venv`. By default, it creates a `.venv` directory in your current location.
+Para crear un nuevo entorno virtual, utilice `uv venv`. Por defecto, crea un directorio `.venv` en su ubicación actual.
 
 ```bash
 # Create a virtual environment in the .venv directory
 uv venv
 ```
 
-You can also specify a Python version if you have multiple versions installed:
+También puede especificar una versión Python si tiene varias versiones instaladas:
 
 ```bash
 # Create a virtual environment with Python 3.12
 uv venv -p 3.12
 ```
 
-### Activate and Deactivate the Environment
+### Activar y desactivar el medio ambiente
 
-To activate the virtual environment, you need to run the activation script.
+Para activar el entorno virtual, necesita ejecutar el script de activación.
 
-**On macOS and Linux:**
+**En macOS y Linux:**
 ```bash
 source .venv/bin/activate
 ```
 
-**On Windows (Command Prompt):**
+**En Windows (Command Prompt):**
 ```batch
 .venv\Scripts\activate.bat
 ```
 
-**On Windows (PowerShell):**
+**En Windows (PowerShell):**
 ```powershell
 .venv\Scripts\Activate.ps1
 ```
 
-Your terminal prompt will change to indicate that the virtual environment is active.
+Su impulso terminal cambiará para indicar que el entorno virtual está activo.
 
-To deactivate it, simply run:
+Para desactivarlo, simplemente ejecute:
 ```bash
 deactivate
 ```
 
-### Removing an Environment
+### Eliminación de un entorno
 
-A `uv` virtual environment is just a directory. To remove it, you can delete the directory.
+Un entorno virtual `uv` es sólo un directorio. Para eliminarlo, puede eliminar el directorio.
 
 ```bash
 # Make sure you are not inside the environment
@@ -84,38 +84,38 @@ deactivate
 rm -rf .venv
 ```
 
-## 3. Initializing a Python Project
+## 3. Iniciación de un proyecto de pitón
 
-Modern `uv` uses `pyproject.toml` to manage dependencies, following PEP 621 standards. This is the recommended approach over `requirements.txt`.
+`uv` utiliza `pyproject.toml` para administrar dependencias, siguiendo los estándares PEP 621. Este es el enfoque recomendado sobre `requirements.txt`.
 
-### Initialize a New Project
+### Iniciar un nuevo proyecto
 
-To create a new Python project with a `pyproject.toml`:
+Para crear un nuevo proyecto Python con un `pyproject.toml`:
 
 ```bash
 uv init my-project
 cd my-project
 ```
 
-This creates a basic project structure with a `pyproject.toml` file.
+Esto crea una estructura básica de proyecto con un archivo `pyproject.toml`.
 
-### Initialize in an Existing Directory
+### Iniciar en un directorio existente
 
-If you already have a project directory:
+Si ya tiene un directorio de proyecto:
 
 ```bash
 uv init
 ```
 
-This will create a `pyproject.toml` in the current directory.
+Esto creará un `pyproject.toml` en el directorio actual.
 
-## 4. Managing Packages with `pyproject.toml`
+## 4. Gestión de paquetes con `pyproject.toml`
 
-`uv` automatically manages your virtual environment and dependencies when you use `uv add` and `uv remove`.
+`uv` gestiona automáticamente su entorno y dependencias virtuales cuando utiliza `uv add` y `uv remove`.
 
-### Add Packages
+### Agregar paquetes
 
-Use `uv add` to install packages and automatically update your `pyproject.toml`:
+Utilice `uv add` para instalar paquetes y actualizar automáticamente su `pyproject.toml`:
 
 ```bash
 # Add packages to your project
@@ -128,39 +128,39 @@ uv add "numpy==1.26.0"
 uv add --dev pytest black
 ```
 
-This command:
-- Creates/activates the virtual environment automatically
-- Installs the packages
-- Updates `pyproject.toml` with the dependencies
-- Creates/updates `uv.lock` for reproducible builds
+Este comando:
+- Crea/activa automáticamente el entorno virtual
+- Instala los paquetes
+- Actualizaciones `pyproject.toml` con las dependencias
+- Crea/actúa `uv.lock` para construcciones reproducibles
 
-### Remove Packages
+### Eliminar paquetes
 
-To remove a package:
+Para eliminar un paquete:
 
 ```bash
 uv remove scikit-learn
 ```
 
-### List Installed Packages
+### Lista de paquetes instalados
 
-To see all packages in your project:
+Para ver todos los paquetes en su proyecto:
 
 ```bash
 uv pip list
 ```
 
-### Sync Dependencies
+### Dependencias sincronómicas
 
-To ensure your environment matches `pyproject.toml`:
+Para asegurar que su entorno coincida con `pyproject.toml`:
 
 ```bash
 uv sync
 ```
 
-## 5. Running Python with uv
+## 5. Python corriendo con uv
 
-You can run Python scripts and commands without manually activating the virtual environment:
+Puede ejecutar scripts y comandos Python sin activar manualmente el entorno virtual:
 
 ```bash
 # Run a Python script
@@ -173,15 +173,15 @@ uv run python -m pytest
 uv run black .
 ```
 
-`uv run` automatically uses the project's virtual environment.
+`uv run` utiliza automáticamente el entorno virtual del proyecto.
 
-## 6. Sharing Projects
+## 6. Proyectos compartidos
 
-When sharing your project, include both `pyproject.toml` and `uv.lock` in version control.
+Al compartir su proyecto, incluya tanto `pyproject.toml` como `uv.lock` en el control de versiones.
 
-### Clone and Setup a Project
+### Cerrar y configurar un proyecto
 
-Anyone can replicate your environment with:
+Cualquier persona puede replicar su entorno con:
 
 ```bash
 # Clone the repository
@@ -192,9 +192,9 @@ cd <project-directory>
 uv sync
 ```
 
-### Working with Legacy `requirements.txt`
+### Trabajando con Legacy `requirements.txt`
 
-If you need to work with existing `requirements.txt` files:
+Si necesita trabajar con los archivos `requirements.txt` existentes:
 
 ```bash
 # Install from requirements.txt
@@ -204,4 +204,4 @@ uv pip install -r requirements.txt
 uv pip freeze > requirements.txt
 ```
 
-However, migrating to `pyproject.toml` is recommended for better dependency management.
+Sin embargo, migrar a `pyproject.toml` es recomendable para una mejor gestión de dependencia.

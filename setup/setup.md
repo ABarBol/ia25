@@ -1,76 +1,76 @@
-# Essential Tools for AI Programming
+# Herramientas esenciales para la programación de AI
 
-## Programming Languages
+## Idiomas de programación
 
 ### Python
 
-Python is the **predominant programming language for *machine learning***. It will be the language we use throughout this course. Python is an interpreted, high-level, general-purpose programming language. It is a very versatile and easy-to-learn programming language, and has a **vast collection of libraries and frameworks for AI**, *machine learning*, and *deep learning*.
+Python es el ** lenguaje de programación predominante para * machine learning***. Será el idioma que usamos a lo largo de este curso. Python es un lenguaje de programación interpretado, de alto nivel y para fines generales. Es un lenguaje de programación muy versátil y fácil de aprender, y tiene una colección **vasta de bibliotecas y marcos para AI**, * machine learning* y *deep learning*.
 
-Python programming courses:
+Cursos de programación de pitón:
 - https://edube.org/study/pe1
 - https://edube.org/study/pe2
 
 
-### Other Relevant Programming Languages in AI
+### Otros idiomas relevantes de programación en AI
 
-- R: Primarily used in statistics and data analysis.
-- C/C++: Many of the libraries accessed from Python are implemented in C/C++ since they are low-level languages and much faster than Python. C++ remains the reference when performance is critical.
-- Julia: High-performance programming language designed for scientific and technical computing.
-- Mojo: Aims to achieve Python's usability with performance similar to C.
+- R: Principalmente utilizado en estadísticas y análisis de datos.
+- C/C++: Muchas de las bibliotecas a las que se accede desde Python se implementan en C/C++ ya que son idiomas de bajo nivel y mucho más rápido que Python. C++ sigue siendo la referencia cuando el rendimiento es crítico.
+- Julia: Lenguaje de programación de alto rendimiento diseñado para la informática científica y técnica.
+- Mojo: Objetivos para lograr la usabilidad de Python con rendimiento similar a C.
 
 
-## Git and Git Forges
+## Git y Git Forges
 
-Git is a distributed version control system that allows us to keep a record of changes in a project's source code.
-Git forges are services that allow us to host our Git repositories in the cloud. Some of the most popular forges are GitHub, GitLab, and Bitbucket. Throughout this course, we will extensively use Git and GitHub.
+Git es un sistema de control de versiones distribuido que nos permite mantener un registro de cambios en el código fuente de un proyecto.
+Las forjas Git son servicios que nos permiten acoger nuestros repositorios Git en la nube. Algunas de las forjas más populares son GitHub, GitLab y Bitbucket. A lo largo de este curso, utilizaremos ampliamente Git y GitHub.
 
-- [Git and GitHub Resources](https://github.com/avidaldo/recursos-git)
+- [Git y GitHub Resources](https://github.com/avidaldo/recursos-git)
 - [Git and GitHub for AI Programming](https://www.youtube.com/watch?v=T1tYBbiWTbc)
 
 
 ## IDEs (Integrated Development Environment)
 
-For working with Python for *machine learning* and *deep learning*, some of the most popular IDEs are:
+Para trabajar con Python para * machine learning* y *deep learning*, algunos de los IDE más populares son:
 
 ### [Visual Studio Code (VS Code)](https://code.visualstudio.com/)
 
-Visual Studio Code is a source code editor developed by Microsoft. It is cross-platform and supports multiple programming languages. It is one of the most popular editors among software developers.
+Visual Studio Code es un editor de código fuente desarrollado por Microsoft. Es multiplataforma y admite múltiples lenguajes de programación. Es uno de los editores más populares entre desarrolladores de software.
 
-- [VISUAL STUDIO CODE: Beginner's Tutorial](https://www.youtube.com/watch?v=CxF3ykWP1H4)
+- [CODE DE ESTUDIO VISUAL: Tutorial del principiante](https://www.youtube.com/watch?v=CxF3ykWP1H4)
 
 ### [Cursor](https://www.cursor.com/)
 
-Cursor is a [fork](https://en.wikipedia.org/wiki/Fork_(software_development)) of VS Code focused on using LLMs for programming.
+Cursor es un [hork](https://en.wikipedia.org/wiki/Fork_(software_development)) de código VS centrado en el uso de LLMs para la programación.
 
 ### [PyCharm](https://www.jetbrains.com/pycharm/)
 
-PyCharm is an IDE developed by JetBrains. It is one of the most popular IDEs for Python and is used by many software developers.
+PyCharm es un IDE desarrollado por JetBrains. Es uno de los IDE más populares para Python y es utilizado por muchos desarrolladores de software.
 
 ### [DataSpell](https://www.jetbrains.com/dataspell/)
 
-DataSpell is another JetBrains IDE similar to PyCharm but specialized in data analysis.
+DataSpell es otro JetBrains IDE similar al PyCharm pero especializado en análisis de datos.
 
 ## Jupyter Notebooks
 
-Jupyter is an application that allows us to create *notebooks* (documents that combine code, rich text, equations, visualizations, etc.) in the browser. These *notebooks* are files with the .ipynb extension (when using the Python language) that can be exported in different static formats, such as HTML or PDF. The `.ipynb` files are internally JSON.
+Jupyter es una aplicación que nos permite crear *notebooks* (documentos que combinan código, texto rico, ecuaciones, visualizaciones, etc.) en el navegador. Estos *notebooks* son archivos con la extensión .ipynb (al utilizar el lenguaje Python) que se pueden exportar en diferentes formatos estáticos, como HTML o PDF. Los archivos `.ipynb` son internamente JSON.
 
-## Virtual Environments
+## Entornos virtuales
 
-**Virtual environments** allow us to isolate a project's **dependencies** from those of the operating system. This enables us to have different versions of the same **libraries** in different projects without conflicts between them.
+**Entornos virtuales** nos permiten aislar las **dependencias de un proyecto** de las del sistema operativo. Esto nos permite tener diferentes versiones de las mismas **bibliografías** en diferentes proyectos sin conflictos entre ellos.
 
- - [Conda Tutorial: Environment and Package Management](conda_tutorial.md)
- - [uv Tutorial: A Fast Python Package Installer and Resolver](uv_tutorial.md)
+ - [Conda Tutorial: Medio Ambiente y Gestión de Paquetes](conda_tutorial.md)
+ - [tutorial uv: un instalador de paquetes rápido de pitón y resolver](uv_tutorial.md)
 
- - [Introduction to pip, conda, and virtual environments](https://www.youtube.com/watch?v=7Rd-Gj8o-6Q)
+ - [Introducción a entornos de pip, conda y virtual](https://www.youtube.com/watch?v=7Rd-Gj8o-6Q)
 
-We will mainly use the more recent `uv`; a modern tool for managing virtual environments and dependencies in Python projects.
+Utilizaremos principalmente el `uv` más reciente; una herramienta moderna para gestionar entornos virtuales y dependencias en proyectos de Python.
 
- - [UV for Python… (Almost) All Batteries Included](https://www.youtube.com/watch?v=qh98qOND6MI)
+ - [UV para Python... (casi) Todas las baterías incluidas](https://www.youtube.com/watch?v=qh98qOND6MI)
 
-### [Dependency and Virtual Environment Management in Python](py_dependencies.md)
+### [Dependencia y Gestión Virtual del Medio Ambiente en Python](py_dependencies.md)
 
 
 ## [Google Colab](https://colab.research.google.com/)
 
-Google Colab is a free Google service that allows us to run Jupyter *notebooks* in the cloud. Colab allows us to execute code in Python, R, and other programming languages, and provides access to hardware resources such as GPUs and TPUs.
+Google Colab es un servicio gratuito de Google que nos permite ejecutar Jupyter *notebooks* en la nube. Colab nos permite ejecutar código en Python, R y otros idiomas de programación, y proporciona acceso a recursos de hardware como GPUs y TPU.
 

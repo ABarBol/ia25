@@ -1,36 +1,36 @@
-# Artificial Intelligence - 2024/25
+# Inteligencia Artificial - 2024/25
 
-## Notes and Examples
+## Notas y ejemplos
 
 ### Overview of AI Concepts
 
-- [Overview of AI](background/01_what_is_ai.md)
-- [Machine Learning Basics](background/02_machine_learning_basics.md)
+- [Panorama general de la AI](background/01_what_is_ai.md)
+- [Básicos de aprendizaje automático](background/02_machine_learning_basics.md)
 - [Neural Networks Foundations](background/03_neural_networks_foundations.md)
 - [Generative and Agentic AI](background/04_generative_and_agentic_ai.md)
 
-### Basic Setup and Tools
+### Configuración básica y herramientas
 
-- [Overview of technologies for Python AI development](setup/setup.md)
+- [Panorama general de las tecnologías para el desarrollo de Python AI](setup/setup.md)
 
 - NumPy
   - [NumPy](./numpy/numpy1.ipynb)
-  - [Algebra with NumPy](./numpy/numpy2_algebra.ipynb)
-    - [Examples: Lists vs NumPy Array Manipulation](./numpy/lists_nd_arrays_examples.ipynb)
+  - [Álgebra con NumPy](./numpy/numpy2_algebra.ipynb)
+    - [Ejemplos: Listas vs NumPy Array Manipulation](./numpy/lists_nd_arrays_examples.ipynb)
 
 - Pandas
-  - [Series and DataFrame structure](./pandas/pandas1.ipynb)
-  - [DataFrame operations](./pandas/pandas_dataframe_op.ipynb)
-    - [Example: DataFrame from different structures](./pandas/df_from_structures.ipynb)
+  - [Estructura de serie y dataFrame](./pandas/pandas1.ipynb)
+  - [Operaciones de DataFrame](./pandas/pandas_dataframe_op.ipynb)
+    - [Ejemplo: DataFrame de diferentes estructuras](./pandas/df_from_structures.ipynb)
 
 
-## Resources
+## Recursos
 
-- [Previous Year Repository](https://github.com/avidaldo/ia24)
+- [Repositorio del año anterior](https://github.com/avidaldo/ia24)
 
 
-## Additional External Resources
+## Recursos externos adicionales
 
-- [Data Science cheatsheet](data-science-cheatsheet.pdf)
-- [Notes on Bayesian Probability](https://github.com/avidaldo/mates_ml)
-- [Basic Mathematics for Machine Learning](https://github.com/hrnbot/Basic-Mathematics-for-Machine-Learning)
+- [Hoja de trampa de la ciencia de datos](data-science-cheatsheet.pdf)
+- [Notas sobre la probabilidad bayesiana](https://github.com/avidaldo/mates_ml)
+- [Matemáticas básicas para el aprendizaje automático](https://github.com/hrnbot/Basic-Mathematics-for-Machine-Learning)

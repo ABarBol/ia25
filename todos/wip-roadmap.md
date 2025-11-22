@@ -1,613 +1,613 @@
-# AI and Machine Learning Course Roadmap
+# Curso de Aprendizaje IA y Máquina
 
----
+-..
 
-## **CONTENTS**
+## *CONTENIDOS*
 
 ### **Unit 1: Foundations of Artificial Intelligence and Business Impact**
-* **Objective:** Establish a solid conceptual foundation, understand the "why" of AI and its implications.
-* **Contents:**
-    * Principles of intelligent systems: What is AI?
-    * Strong AI vs. Weak AI: Characterization, uses, and possibilities.
-    * AI vs Machine Learning vs Deep Learning: Definitions and relationships.
+* **Objetivo:** Establecer una base conceptual sólida, entender el "por qué" de la IA y sus implicaciones.
+* **Contenidos:**
+    * Principios de sistemas inteligentes: ¿Qué es AI?
+    * Strong AI vs. Weak AI: Caracterización, usos y posibilidades.
+    * AI vs Machine Learning vs Deep Learning: Definiciones y relaciones.
     * Data Science and Big Data: The role of data in AI.
-    * AI lifecycle: From data collection to model deployment and monitoring.
-    * Supervised, Unsupervised, and Reinforcement Learning: Basic concepts and differences (high-level overview).
-    * AI application fields: Identification of sectors and use cases.
-    * Technological Convergence: How AI, IoT, Cloud, and Blockchain unify processes and improve strategic decision-making.
-    * AI in business: Operational efficiency improvement, new interactions, and business models.
+    * Ciclo de vida AI: De la recopilación de datos a la implementación y monitoreo modelo.
+    * Aprendizaje supervisado, no supervisado y reforzado: Conceptos básicos y diferencias (respecto de alto nivel).
+    * Campos de aplicación AI: Identificación de sectores y casos de uso.
+    * Convergencia Tecnológica: Cómo AI, IoT, Cloud y Blockchain unifican los procesos y mejoran la toma de decisiones estratégicas.
+    * AI en negocios: Mejora de la eficiencia operativa, nuevas interacciones y modelos de negocio.
 
----
+-..
 
-### **Unit 2: Programming Ecosystem for AI**
-* **Objective:** Acquire essential programming tools for AI development.
-* **Contents:**
-    * Introduction to Python: The industry standard language for AI.
-    * Other languages: R, Julia, and their specific applications.
-    * Environments with uv: Managing dependencies and virtual environments.
-    * Development environments: Jupyter Notebooks, Google Colab, VS Code.
-    * Setup: VSCode with Python, Jupyter, and Git. Environments and dependency management with uv.
-    * **Programming with AI Agents:**
-        * **GitHub Copilot in VS Code:** AI-powered code completion and generation.
-        * Modern development workflow: Using AI as a pair programming partner.
-        * Best practices: Prompt engineering for code generation, reviewing AI suggestions.
-        * AI-assisted debugging and refactoring.
-        * Leveraging AI agents throughout the development lifecycle.
-        * **Note:** All course projects will be developed using modern AI-assisted workflows.
-    * Version control with Git and GitHub: Collaboration and project management.
-    * Fundamental libraries:
-        * **NumPy:** For numerical computation.
-        * **Pandas:** For data manipulation and analysis.
+### **Unit 2: Ecosistema de programación para AI**
+* **Objetivo:** Adquire essential programming tools for AI development.
+* **Contenidos:**
+    * Introducción a Python: El lenguaje estándar de la industria para AI.
+    * Otros idiomas: R, Julia y sus aplicaciones específicas.
+    * Ambientes con uv: Gestión de dependencias y entornos virtuales.
+    * Medios de desarrollo: Jupyter Notebooks, Google Colab, VS Code.
+    * Configuración: VSCode con Python, Jupyter y Git. Medio ambientes y gestión de dependencia con uv.
+    * **Programación con agentes de IA:**
+        * **GitHub Copilot in VS Code:** Compleción y generación de código impulsado por AI.
+        * Moderno flujo de trabajo de desarrollo: Utilizando AI como socio de programación de pares.
+        * Mejores prácticas: Ingeniería avanzada para la generación de códigos, revisión de sugerencias de IA.
+        * IA-asistida depuración y refactorización.
+        * Aprovechando agentes de inteligencia artificial durante todo el ciclo de vida del desarrollo.
+        * **Nota:** Todos los proyectos del curso se desarrollarán utilizando modernos flujos de trabajo asistidos por AI.
+    * Control de versiones con Git y GitHub: Colaboración y gestión de proyectos.
+    * Bibliotecas fundamentales:
+        * **NumPy:** Para computación numérica.
+        * **Pandas:** Para la manipulación y análisis de datos.
 
----
+-..
 
 
-### **Project 1: Practice: Create a GitHub repository with a tic-tac-toe game. The machine should be able to play against a human using a mini-max algorithm.**
-    - Improvements:
-        - Implement a graphical user interface (GUI) using libraries like Tkinter or Pygame.
-        - Add an option for difficult levels: agent plays randomly, agent uses minimax algorithm.
-        - Add support for different difficulty levels by limiting the depth of the minimax search.
-        - Add a scoring system to track wins, losses, and draws.
-        - Include unit tests to ensure the correctness of the game logic and AI decisions.
+### **Proyecto 1: Práctica: Crear un repositorio GitHub con un juego tic-tac-toe. La máquina debe ser capaz de jugar contra un humano usando un algoritmo mini-max.**
+    - Mejoras:
+        - Implementar una interfaz gráfica de usuario (GUI) usando bibliotecas como Tkinter o Pygame.
+        - Añadir una opción para niveles difíciles: el agente juega al azar, el agente utiliza el algoritmo minimax.
+        - Añadir soporte para diferentes niveles de dificultad limitando la profundidad de la búsqueda minimax.
+        - Añade un sistema de puntuación para rastrear victorias, pérdidas y sorteos.
+        - Incluye pruebas unitarias para garantizar la corrección de la lógica del juego y las decisiones AI.
 --
 
-### **Project 2: Processing MNIST with NumPy**
+### **Proyecto 2: Procesando MNIST con NumPy**
 
----
+-..
 
 ### **Unit 3: The Three Machine Learning Paradigms - A Practical Introduction**
-* **Objective:** Understand the three fundamental approaches to machine learning through hands-on examples and prepare students for deeper dives into each paradigm.
-* **Duration:** 1-2 weeks
-* **Contents:**
+* **Objetivo:** Entender los tres enfoques fundamentales del aprendizaje automático a través de ejemplos prácticos y preparar a los estudiantes para inmersiones más profundas en cada paradigma.
+* **Duración*
+* **Contenidos:**
     * **Overview: The Three Learning Paradigms**
-        * What problems does each paradigm solve?
-        * When to use supervised vs unsupervised vs reinforcement learning?
-        * Real-world applications of each approach.
-        * The learning signals: labels, patterns, and rewards.
-    * **Paradigm 1: Supervised Learning - Learning from Examples**
-        * Concept: Learning a mapping from inputs to outputs using labeled data.
-        * **Simple example:** K-Nearest Neighbors (KNN) on Iris dataset.
-        * Hands-on: Load pre-trained scikit-learn model, make predictions, evaluate accuracy.
-        * Key insight: The model learns from examples with known answers.
-        * Teaser: "In Unit 4, we'll dive deep into many supervised algorithms."
-    * **Paradigm 2: Unsupervised Learning - Finding Hidden Patterns**
-        * Concept: Discovering structure in data without labels.
-        * **Simple example:** K-means clustering on 2D synthetic data.
-        * Hands-on: Generate data, apply clustering, visualize results.
-        * Key insight: The model groups similar data points automatically.
-        * Teaser: "In Unit 5, we'll explore PCA, DBSCAN, and anomaly detection."
+        * ¿Qué problemas resuelve cada paradigma?
+        * ¿Cuándo utilizar el aprendizaje de refuerzo supervisado vs no supervisado?
+        * Aplicaciones del mundo real de cada enfoque.
+        * Las señales de aprendizaje: etiquetas, patrones y recompensas.
+    * **Paradigma 1: Aprendizaje supervisado - Aprendizaje de Ejemplos**
+        * Concepto: Aprender una asignación de insumos a salidas utilizando datos etiquetados.
+        * ** Ejemplo simple:** K-Nearest Neighbors (KNN) en el conjunto de datos de Iris.
+        * Manos a mano: Cargar modelo de scikit-learn pre-entrenado, hacer predicciones, evaluar la precisión.
+        * Información clave: El modelo aprende de ejemplos con respuestas conocidas.
+        * Teaser: "En la Unidad 4, nos sumergimos profundamente en muchos algoritmos supervisados."
+    * **Paradigma 2: Aprendizaje no supervisado - Encontrar patrones ocultos**
+        * Concepto: Descubrir la estructura en datos sin etiquetas.
+        * ** Ejemplo:** Medios K agrupando datos sintéticos 2D.
+        * Manos a mano: Generar datos, aplicar agrupaciones, visualizar resultados.
+        * Información clave: El modelo agrupa puntos de datos similares automáticamente.
+        * Teaser: "En la Unidad 5, exploraremos PCA, DBSCAN y detección de anomalías".
     * **Paradigm 3: Reinforcement Learning - Learning through Trial and Error**
-        * Concept: An agent learns by interacting with an environment and receiving rewards.
-        * Core components:
-            * **Agent:** The learner/decision maker.
-            * **Environment:** The world the agent interacts with.
-            * **State:** Current situation of the agent.
-            * **Action:** Choices available to the agent.
-            * **Reward:** Feedback signal (positive or negative).
+        * Concepto: Un agente aprende interactuando con un ambiente y recibiendo recompensas.
+        * Componentes básicos:
+            * **Agente:** El alumno/aprendizaje de la decisión.
+            * ** Medio ambiente** El mundo con el que el agente interactúa.
+            * **Estado:** Situación actual del agente.
+            * **Acción** Opciones disponibles para el agente.
+            * **Retroceder:** Indicación de retroalimentación (positiva o negativa).
         * **Q-Learning Algorithm:**
-            * Q-table: Storing expected rewards for state-action pairs.
+            * Q-table: Guardar recompensas esperadas para parejas de acción del estado.
             * Exploration vs Exploitation: Balancing trying new actions vs using known good ones.
-            * Learning process: Updating Q-values based on experience.
-            * Simple implementation with dictionaries and loops.
-        * **Practical examples:**
-            * GridWorld: Navigate a grid to reach a goal while avoiding obstacles.
-            * Tic-Tac-Toe: Learn optimal moves through self-play.
-        * Key insight: No one tells the agent what to do; it learns from consequences.
-    * **Comparing the Paradigms:**
-        * Comparison table: Data requirements, feedback type, common applications.
-        * Discussion: Why different problems need different approaches.
+            * Proceso de aprendizaje: Actualización de valores Q basados en la experiencia.
+            * Implementación sencilla con diccionarios y bucles.
+        * ** Ejemplos prácticos:**
+            * GridWorld: Navigate una cuadrícula para alcanzar una meta evitando obstáculos.
+            * Tic-Tac-Toe: Aprenda los movimientos óptimos a través del auto-juego.
+        * Información clave: Nadie le dice al agente qué hacer; aprende de las consecuencias.
+    * **Comparando los paradigmas:**
+        * Tabla de comparación: Requisitos de datos, tipo de retroalimentación, aplicaciones comunes.
+        * Discusión: Por qué diferentes problemas necesitan diferentes enfoques.
     * **Python Programming Practice:**
-        * Object-oriented programming: Classes for agents, environments, games.
-        * Data structures: Dictionaries for Q-tables, lists for state representation.
-        * Control flow: Loops for training episodes, conditionals for decision-making.
-        * Code organization: Separating game logic, agent logic, and training code.
-        * Testing: Unit tests for game rules and agent behavior.
+        * Programación orientada hacia objetos: Clases para agentes, ambientes, juegos.
+        * Estructuras de datos: Diccionarios para Q-tables, listas de representación estatal.
+        * Flujo de control: Opciones para los episodios de entrenamiento, condiciones para la toma de decisiones.
+        * Organización del código: Separar la lógica del juego, la lógica del agente y el código de entrenamiento.
+        * Pruebas: Pruebas de unidad para reglas de juego y comportamiento de agente.
     * **GitHub Workflow:**
-        * Branching strategies for feature development.
-        * Meaningful commit messages and version history.
-        * Code documentation and README files.
-        * Collaborative coding practices.
+        * Estrategias de ramificación para el desarrollo de características.
+        * Significativo comprometer mensajes e historia de la versión.
+        * Documentación de código y archivos README.
+        * Prácticas colaborativas de codificación.
 
----
+-..
 
-### **Project 3: Reinforcement Learning Game Agent**
-*Applied after Unit 3 - ML Paradigms*
-* **Objective:** Implement a Q-learning agent to master a simple game, practicing Python OOP and GitHub workflow.
-* **Key Components:**
-    * **Game environment:** Choose one of three difficulty levels:
-        * **Level 1 (Beginner):** GridWorld navigation (5×5 grid, obstacles, goal).
-        * **Level 2 (Intermediate):** Tic-Tac-Toe against random opponent.
-        * **Level 3 (Advanced):** Tic-Tac-Toe against Minimax algorithm opponent.
-    * **Q-learning implementation:**
-        * State representation: How to encode game situations.
-        * Action space: Valid moves from each state.
-        * Reward design: +1 for win, -1 for loss, -0.1 for each move, etc.
-        * Q-table update: Implementing the Q-learning formula.
-        * Hyperparameters: Learning rate (α), discount factor (γ), exploration rate (ε).
-    * **Training process:**
-        * Training loop: Playing many episodes to improve.
-        * Epsilon decay: Gradually reducing exploration over time.
-        * Performance tracking: Win rate, average reward, training curves.
-    * **Evaluation:**
-        * Test against random opponent.
-        * Test against rule-based strategies.
-        * Visualize learned Q-values.
-    * **Code quality requirements:**
-        * Proper class structure (Agent, Environment, Game classes).
-        * Documentation: Docstrings, comments, README.
-        * Unit tests: Test game rules, move validation, Q-table updates.
+### **Proyecto 3: Reinforcement Learning Game Agent**
+*Aplicado después de la Unidad 3 - Paradigmas ML*
+* **Objetivo:** Implementar un agente de Q-learning para dominar un juego simple, practicando Python OOP y GitHub workflow.
+* ** Componentes clave:**
+    * **Entorno del juego** Elige uno de los tres niveles de dificultad:
+        * **Nivel 1 (Principiante):** Navegación de GridWorld (5×5 grid, obstacles, goal).
+        * **Nivel 2 (Intermedio):** Tic-Tac-Toe contra el oponente aleatorio.
+        * **Nivel 3 (Advanced):** Tic-Tac-Toe contra el oponente del algoritmo Minimax.
+    * ** Aplicación del aprendizaje en la Sede:**
+        * Representación del Estado: Cómo codificar situaciones de juego.
+        * Espacio de acción: Los movimientos válidos de cada estado.
+        * Diseño de recompensa: +1 para ganar, -1 para la pérdida, -0.1 para cada movimiento, etc.
+        * Actualización Q-table: Implementación de la fórmula Q-learning.
+        * Hyperparameters: Tasa de aprendizaje (α), factor de descuento (γ), tasa de exploración (ε).
+    * **Proceso de formación:**
+        * Lazo de entrenamiento: Jugando muchos episodios para mejorar.
+        * Decaimiento de Epsilon: Reducción gradual de la exploración con el tiempo.
+        * Seguimiento de rendimiento: Velocidad de ganancia, recompensa promedio, curvas de entrenamiento.
+    * **Evaluación**
+        * Prueba contra el oponente al azar.
+        * Prueba contra estrategias basadas en normas.
+        * Visualizar los valores de Q aprendidos.
+    * **Requisitos de calidad del proyecto:**
+        * Estructura adecuada de clase (clases de Agente, Medio Ambiente, Juego).
+        * Documentación: Documentos, comentarios, README.
+        * Pruebas de unidad: Prueba reglas del juego, movimiento de validación, actualizaciones de Q-table.
         * Git workflow: Multiple commits with clear messages, branching if needed.
-* **Learning outcomes:**
-    * Understand RL concepts through implementation.
-    * Practice Python programming and OOP design.
-    * Develop professional coding habits (testing, documentation, version control).
-    * Build confidence before tackling complex supervised learning algorithms.
-* **Note:** This is a simplified, educational RL project focused on fundamentals and coding practice, not production-level RL systems.
+* ** Resultados de aprendizaje:**
+    * Comprender los conceptos de RL mediante la implementación.
+    * Practicar Python programación y diseño OOP.
+    * Desarrollar hábitos de codificación profesionales (testing, documentación, control de versiones).
+    * Construir confianza antes de abordar complejos algoritmos de aprendizaje supervisados.
+* **Nota:** Se trata de un proyecto RL simplificado y educativo centrado en los fundamentos y la práctica de codificación, no en los sistemas RL de nivel de producción.
 
----
+-..
 
-### **Unit 4: Supervised Machine Learning - Deep Dive**
-* **Objective:** Master the algorithms and techniques for learning from labeled data to make accurate predictions.
-* **Contents:**
-    * Machine Learning principles: Data, patterns, and predictions.
-    * EDA and Data preprocessing: Cleaning, normalization, and feature selection.
-    * **Regression:** Prediction of continuous values.
-    * **Classification:** Prediction of categories.
-    * Key Algorithms:
+### **Unit 4: Aprendizaje de la máquina supervisada - Dive profunda**
+* **Objetivo:** Domine los algoritmos y técnicas para aprender de datos etiquetados para hacer predicciones precisas.
+* **Contenidos:**
+    * Principios de aprendizaje automático: Datos, patrones y predicciones.
+    * EDA y Preprocesamiento de datos: Limpieza, normalización y selección de características.
+    * **Regreso** Predicción de valores continuos.
+    * ** Clasificación:** Predicción de categorías.
+    * Algoritmos clave:
         * K-Nearest Neighbors (KNN)
-        * Linear Regression
-        * Logistic Regression
-        * Decision Trees
-        * Support Vector Machines (SVM)
-        * Ensemble methods: Bagging, Boosting, and Stacking.
-        * Random Forests
-    * Using **Scikit-Learn** to implement these models.
-    * Model evaluation: 
-        * **For regression:** MAE, MSE, RMSE, R-squared, and residual analysis.
-        * **For classification:** Accuracy, Precision, Recall, F1-Score, confusion matrix, ROC-AUC.
-        * **General techniques:** Cross-validation and train/validation/test splits.
-    * Optimization and hyperparameter tuning.
+        * Regreso lineal
+        * Regreso logístico
+        * Árboles de decisión
+        * Soporte Vector Machines (SVM)
+        * Métodos de conjunto: Embalaje, Boosting y Stacking.
+        * Bosques aleatorios
+    * Utilizando **Scikit-Learn** para implementar estos modelos.
+    * Evaluación modelo:
+        * **Para regresión:** MAE, MSE, RMSE, R-squared y análisis residual.
+        * **Para la clasificación** Precisión, Precisión, Recordar, F1-Score, matriz de confusión, ROC-AUC.
+        * ** Técnicas generales:** Dividencias cruzadas, tren/validación/test.
+    * Optimización y ajuste del hiperparametro.
 
----
-
-
-### **Project 4: Real Estate Price Prediction System on Miami Housing Dataset**
-*Applied after Unit 4 - Supervised Learning*
-* **Objective:** Complete regression project using real estate data to predict property prices.
-* **Key Components:**
-    * **Data acquisition:** Real estate datasets with multiple features (location, size, amenities, etc.).
-    * **Feature engineering:** Creating new variables, handling categorical data, geographic features.
-    * **Model comparison:** Linear Regression, Random Forest, XGBoost, SVM regression.
-    * **Advanced evaluation:** Cross-validation, learning curves, residual analysis.
-    * **Business application:** Price estimation tool with confidence intervals.
-* **Neural Network Enhancement:** Implement MLP regression and compare with traditional ML models.
+-..
 
 
----
+### **Proyecto 4: Sistema de Predicción de Precios Inmobiliarias en Miami Housing Dataset**
+* Aplicado después de la Unidad 4 - Aprendizaje supervisado*
+* **Objetivo:** Proyecto de regresión completo utilizando datos inmobiliarios para predecir precios de propiedad.
+* ** Componentes clave:**
+    * **Adquisición de datos:** Conjuntos de datos inmobiliarios con múltiples características (ubicación, tamaño, servicios, etc.).
+    * **Ingeniería de la industria:** Crear nuevas variables, manejar datos categóricos, características geográficas.
+    * ** Comparación modelo:** regresión lineal, Bosque aleatorio, XGBoost, regresión SVM.
+    * **Evaluación avanzada** Validación cruzada, curvas de aprendizaje, análisis residual.
+    * **Aplicación de negocios:** Herramienta de estimación de precios con intervalos de confianza.
+* ** Mejora de la red neuronal** Implementar la regresión MLP y comparar con los modelos ML tradicionales.
 
-### **Unit 5: Unsupervised Machine Learning - Deep Dive**
-* **Objective:** Master techniques for discovering hidden patterns and structures in unlabeled data.
-* **Contents:**
+
+-..
+
+### **Unit 5: Aprendizaje sin supervisión de la máquina - Dive profunda**
+* **Objetivo:** Técnicas maestras para descubrir patrones ocultos y estructuras en datos no etiquetados.
+* **Contenidos:**
     * **Clustering:** Grouping similar data points.
-        * K-means, DBSCAN, and hierarchical clustering algorithms.
-    * **Dimensionality Reduction:** Simplifying complex data.
-        * **Principal Component Analysis (PCA):** Feature extraction and visualization.
-        * t-SNE for high-dimensional data visualization.
-        * Applications in feature engineering and noise reduction.
-    * **Anomaly Detection:** Identification of outliers and unusual patterns.
-    * Evaluation metrics for unsupervised learning.
+        * K-medios, DBSCAN y algoritmos de agrupación jerárquica.
+    * ** Reducción de la dimensión:** simplificar los datos complejos.
+        * **Análisis principal de componentes (PCA):** Extracción y visualización de objetos.
+        * t-SNE para la visualización de datos de alta dimensión.
+        * Aplicaciones en ingeniería de características y reducción de ruido.
+    * **Detección de anomalías:** Identificación de atípicos y patrones inusuales.
+    * métricas de evaluación para el aprendizaje no supervisado.
 
----
+-..
 
 
 
-### **Project 5: Intrusion Detection System (IDS) with Hybrid ML Approach**
-*Applied after Unit 5 - Unsupervised Learning*
-* **Objective:** Comprehensive cybersecurity project using both supervised and unsupervised techniques.
-* **Key Components:**
-    * **Real datasets:** NSL-KDD or CICIDS2017 for real network attacks.
-    * **Phase 1 - Unsupervised:** 
-        * PCA for dimensionality reduction and feature visualization.
-        * Clustering/anomaly detection to establish normal behavior baseline.
-        * DBSCAN and Isolation Forest for anomaly detection.
-    * **Phase 2 - Supervised:** Classification of known attacks with high precision.
-    * **Ensemble approach:** Combining both approaches to maximize detection and minimize false positives.
-    * **Specialized metrics:** Balanced Precision/Recall to minimize false positives.
-    * **Practical application:** Real-time dashboard for network monitoring.
-* **Neural Network Enhancement:** Deep autoencoders for anomaly detection, CNNs for network traffic pattern recognition.
+### **Proyecto 5: Sistema de detección de intrusiones (IDS) con enfoque híbrido ML**
+* Aplicado después de la Unidad 5 - Aprendizaje no supervisado*
+* **Objetivo:** Proyecto integral de ciberseguridad utilizando técnicas supervisadas y no supervisadas.
+* ** Componentes clave:**
+    * **Real datasets:** NSL-KDD o CICIDS2017 para ataques de red reales.
+    * **Página 1 - Sin supervisión:**
+        * PCA para reducción de dimensionalidad y visualización de características.
+        * Detección de agrupación/análisis para establecer la base de conducta normal.
+        * DBSCAN e Isolation Forest para la detección de anomalías.
+    * **Phase 2 - Supervisado:** Clasificación de ataques conocidos con alta precisión.
+    * **Ensemble approach:** Combinando ambos enfoques para maximizar la detección y minimizar falsos positivos.
+    * **Métricas especializadas:** Precisión equilibrada/Recaimiento para minimizar falsos positivos.
+    * ** Aplicación práctica:** Dashboard en tiempo real para el monitoreo de redes.
+* ** Mejora de la red neuronal** Autoencoders profundos para detección de anomalías, CNNs para reconocimiento de patrones de tráfico de red.
 
----
+-..
 
 ## 1ST TERM EVALUATION POINT
 
----
+-..
 
-### **Unit 6: Deep Learning Fundamentals with PyTorch**
-* **Objective:** Master the foundations of deep learning and neural network implementation from scratch using PyTorch.
-* **Contents:**
+### **Unidad 6: Fundamentos de aprendizaje profundo con PyTorch**
+* **Objetivo:** Domine los cimientos del aprendizaje profundo y la implementación de redes neuronales desde cero usando PyTorch.
+* **Contenidos:**
     * **Neural Network Foundations:**
-        * From Perceptron to Multi-Layer Perceptrons (MLP).
-        * Universal approximation theorem and network depth.
-        * Activation functions: ReLU, sigmoid, tanh, and modern variants.
-        * The backpropagation algorithm: understanding gradient flow.
+        * De Perceptron a Perceptrones Multi-Layer (MLP).
+        * Teorema de aproximación universal y profundidad de red.
+        * Funciones de activación: ReLU, sigmoide, tanh y variantes modernas.
+        * El algoritmo de retropropagación: comprensión del flujo de gradiente.
     * **Deep Learning with PyTorch:**
-        * Introduction to **PyTorch** framework and tensor operations.
-        * Building neural networks with `nn.Module`.
-        * Training process: Loss functions, optimizers (SGD, Adam), and backpropagation.
-        * Regularization techniques: Dropout, batch normalization, weight decay.
-        * Training best practices: learning rate scheduling, early stopping.
-        * Debugging neural networks: gradient checking, learning curves.
+        * Introducción a **PyTorch** marco y operaciones de tensor.
+        * Construcción de redes neuronales con `nn.Module`.
+        * Proceso de entrenamiento: Funciones de pérdida, optimizadores (SGD, Adam) y retropropagación.
+        * Técnicas de regularización: abandono, normalización de lotes, descomposición de peso.
+        * Capacitación de las mejores prácticas: programación de la tasa de aprendizaje, parada temprana.
+        * Debugging neural networks: gradient check, learning curves.
     * **Hands-on Implementation:**
-        * Building MLPs from scratch for classification and regression.
-        * MNIST digit classification with feedforward networks.
-        * Hyperparameter tuning and model evaluation.
-        * Visualizing training dynamics and decision boundaries.
+        * Construyendo MLPs desde cero para clasificación y regresión.
+        * Clasificación MNIST digital con redes de alimentación.
+        * Ajuste del hiperparametro y evaluación del modelo.
+        * Visualización de dinámicas de capacitación y límites de decisión.
 
----
+-..
 
-### **Project 6: Neural Network Fundamentals - TensorFlow Playground Tutorial**
-*Applied after Unit 6 - Deep Learning Fundamentals*
-* **Objective:** Create a comprehensive tutorial covering all scenarios in TensorFlow Playground to build intuition about neural network behavior.
-* **Key Components:**
-    * **Systematic exploration:** Document behavior across all datasets and architectures.
-    * **Network depth analysis:** Compare shallow vs deep networks.
-    * **Activation functions:** Experiment with different activation functions.
-    * **Learning rate effects:** Demonstrate impact on convergence.
-    * **Regularization:** Show effects of dropout and other techniques.
-    * **Overfitting visualization:** Demonstrate and explain overfitting patterns.
-* **Learning outcomes:** Build strong intuition before implementing networks from scratch.
+### **Proyecto 6: Neural Network Fundamentals - TensorFlow Playground Tutorial**
+* Aplicado después de la Unidad 6 - Fundamentos de aprendizaje profundo*
+* **Objetivo:** Cree un tutorial completo que cubra todos los escenarios en TensorFlow Playground para construir intuición sobre el comportamiento de la red neuronal.
+* ** Componentes clave:**
+    * **Exploración sistemática** Document conduct across all datasets and architectures.
+    * ** Análisis de profundidad de red:** Compare redes superficiales vs profundas.
+    * ** Funciones de acción** Experimento con diferentes funciones de activación.
+    * ** Efectos de la tasa de aprendizaje:** Demostrar impacto en la convergencia.
+    * **Regularización** Mostrar efectos de goteo y otras técnicas.
+    * **Personalización:** Demostrar y explicar patrones de superposición.
+* ** Resultados de aprendizaje:** Construir una fuerte intuición antes de implementar redes desde cero.
 
----
+-..
 
 ### **Unit 7: Computer Vision with Convolutional Neural Networks**
-* **Objective:** Master CNN architectures and modern computer vision techniques using pre-trained models and transfer learning.
-* **Contents:**
-    * **Convolutional Neural Networks (CNNs) - Deep Dive:**
-        * The challenge of image data: spatial structure and parameter efficiency.
-        * CNN architecture components:
-            * Convolutional layers: filters, feature maps, receptive fields.
-            * Pooling layers: max pooling, average pooling.
-            * Fully connected layers and feature extraction.
-        * Understanding convolutions: visualizing filters and feature maps.
-        * Classic architectures: LeNet, AlexNet, VGG, ResNet, EfficientNet.
+* **Objetivo:** Arquitecturas Master CNN y técnicas modernas de visión informática utilizando modelos pre-entrenados y aprendizaje de transferencia.
+* **Contenidos:**
+    * ** Redes neuronales revolucionarias (CNN) - Profundidad:**
+        * El reto de los datos de imagen: estructura espacial y eficiencia del parámetro.
+        * Componentes de arquitectura CNN:
+            * Capas convolutivas: filtros, mapas de características, campos receptivos.
+            * Capas de estanqueidad: estanqueidad máxima, estanqueidad media.
+            * capas totalmente conectadas y extracción de características.
+        * Comprensión de las convoluciones: visualización de filtros y mapas de características.
+        * Arquitecturas clásicas: LeNet, AlexNet, VGG, ResNet, EfficientNet.
     * **Transfer Learning and Pre-trained Models:**
-        * Why transfer learning works: learned features and domain adaptation.
-        * Using pre-trained models from torchvision and timm.
-        * Fine-tuning strategies: freezing layers, learning rates.
-        * Feature extraction for downstream tasks.
-    * **Modern Computer Vision Applications:**
-        * **Object Detection:** YOLO, Faster R-CNN architectures.
-        * **Semantic Segmentation:** U-Net and FCN concepts.
-        * **Image Similarity:** Feature extraction and similarity search.
-        * **Real-time inference:** Optimization for production.
-    * **Autoencoders for Unsupervised Learning:**
-        * Architecture: encoder-decoder structure and bottleneck.
-        * Latent space representation and dimensionality reduction.
-        * Training objectives: reconstruction loss.
-        * Applications: denoising, compression, feature learning, anomaly detection.
-        * Variational Autoencoders (VAE): probabilistic approach to generative modeling.
-        * Comparison with PCA and other dimensionality reduction techniques.
-    * **Practical Tools and Frameworks:**
-        * torchvision: datasets, models, transforms.
-        * Hugging Face transformers for vision models.
+        * Por qué transferir obras de aprendizaje: características aprendidas y adaptación de dominio.
+        * Utilizando modelos pre-entrenados de torchvision y timm.
+        * Estrategias de ajuste fino: capas de congelación, tasas de aprendizaje.
+        * Extracción de características para tareas de aguas abajo.
+    * ** Aplicaciones de Visión Informática Moderna:**
+        * **Detección de objetos:** YOLO, arquitecturas R-CNN más rápidas.
+        * **Segmentación semántica:** conceptos U-Net y FCN.
+        * **Similitud de imagen:** Extracción de objetos y búsqueda de similitud.
+        * **Inferencia de tiempo real:** Optimización para la producción.
+    * **Aprendizaje sin supervisión:**
+        * Arquitectura: estructura de encoder y cuello de botella.
+        * Representación espacial latente y reducción de la dimensión.
+        * Objetivos de capacitación: pérdida de reconstrucción.
+        * Aplicaciones: denoización, compresión, aprendizaje de características, detección de anomalías.
+        * Autoencoders Variational (VAE): enfoque probabilista al modelado generativo.
+        * Comparación con PCA y otras técnicas de reducción de la dimensionalidad.
+    * ** Herramientas prácticas y marcos:**
+        * torchvision: datasets, modelos, transformas.
+        * Transformadores Hugging Face para modelos de visión.
         * YOLO frameworks: ultralytics, YOLOv8.
-* **Available Examples:**
-    * **MNIST Examples:**
-        * `FNN_MNIST.ipynb` - Multi-layer perceptron with normalization and regularization techniques
-        * `CNN_MNIST.ipynb` - Basic CNN architecture for digit classification
-        * `mnist-model-comparison.py` - Comparative analysis between logistic regression, single-layer NN, and CNNs
-    * **CIFAR-10 Examples:**
-        * `CIFAR-10.ipynb` - Complete CIFAR-10 classification pipeline
-        * `CIFAR10_gray.ipynb` - FNN vs CNN comparison on grayscale CIFAR-10
-        * `models/baseline.py` and `models/mejorado.py` - Basic and improved CNN architectures
+* ** Ejemplos disponibles:**
+    * **MNIST Ejemplos:**
+        * `FNN_MNIST.ipynb` - Perceptron multicapa con técnicas de normalización y regularización
+        * `CNN_MNIST.ipynb` - Arquitectura básica de la CNN para la clasificación de dígitos
+        * `mnist-model-comparison.py` - Análisis comparativo entre regresión logística, NN de una sola capa y CNN
+    * **CIFAR-10 Ejemplos:**
+        * `CIFAR-10.ipynb`
+        * `CIFAR10_gray.ipynb` - FNN vs CNN comparación en grayscale CIFAR-10
+        * `models/baseline.py` y `models/mejorado.py` - Arquitecturas CNN básicas y mejoradas
     * **Key Learning Concepts:**
-        * Data preprocessing and normalization techniques
-        * Architecture design principles for FNN vs CNN
-        * Training loop implementation and optimization
-        * Performance comparison and error analysis
-        * Understanding why CNNs excel at image tasks
-* **Learning outcomes:** Students will understand neural network fundamentals, see practical implementations, and comprehend the advantages of CNNs for computer vision tasks.
+        * Técnicas de preprocesamiento y normalización de datos
+        * Principios de diseño de arquitectura para FNN vs CNN
+        * Aplicación y optimización de los circuitos de capacitación
+        * Comparación de rendimiento y análisis de errores
+        * Entendiendo por qué las CNNs sobresalen en tareas de imagen
+* ** Resultados de aprendizaje:** Los estudiantes comprenderán los fundamentos de la red neuronal, verán las implementaciones prácticas y comprenderán las ventajas de las CNN para las tareas de visión informática.
 
----
+-..
 
-### **Project 7B: Intelligent Computer Vision System**
-*Applied after Unit 7 - Computer Vision with CNNs*
-* **Objective:** Complete computer vision pipeline using pre-trained models, object detection, and similarity search with high-level libraries.
-* **Key Components:**
-    * **YOLO implementation:** Real-time object detection in images/video using ultralytics or similar.
-    * **Feature extraction:** Using pre-trained CNNs (ResNet, EfficientNet) to extract image features.
-    * **Vector database:** Storing image features in ChromaDB for similarity search.
-    * **Similarity search:** Finding visually similar images using vector embeddings.
-    * **Transfer learning:** Fine-tune a model on a custom dataset.
-    * **Practical application:** Visual search engine for e-commerce or content management.
-* **Advanced enhancements:** Integration with LLMs for image description and automated tagging.
-* **Learning outcomes:** Apply modern computer vision tools to solve real-world problems using high-level APIs.
-* **Note:** This project focuses on using production-ready tools, not implementing algorithms from scratch.
+### **Proyecto 7B: Sistema Inteligente de Visión Informática**
+*Aplicado después de la Unidad 7 - Computer Vision con CNN*
+* **Objetivo:** Conductor completo de visión computarizada utilizando modelos pre-entrenados, detección de objetos y búsqueda de similitudes con bibliotecas de alto nivel.
+* ** Componentes clave:**
+    * **Aplicación de la OLO:** Detección de objetos en tiempo real en imágenes/video usando ultralitica o similar.
+    * ** Extracción de características:** Utilizando CNNs pre-entrenados (ResNet, EfficientNet) para extraer características de imagen.
+    * *Base de datos de los vehículos* Guardar características de imagen en ChromaDB para búsqueda de similitud.
+    * ** Búsqueda de la similaridad:** Encontrar imágenes visualmente similares usando incrustaciones vectoriales.
+    * **Aprendizaje de traslado:** Ajuste un modelo en un conjunto de datos personalizado.
+    * ** Aplicación práctica:** Motor de búsqueda visual para comercio electrónico o gestión de contenidos.
+* ** Mejoras avanzadas:** Integración con LLMs para descripción de imágenes y etiquetado automatizado.
+* ** Resultados de aprendizaje:** Aplica herramientas modernas de visión informática para resolver problemas del mundo real utilizando API de alto nivel.
+* **Nota:** Este proyecto se centra en el uso de herramientas de producción, sin implementar algoritmos desde cero.
 
----
+-..
 
-### **Unit 8: Sequential Data and the Transformer Revolution**
-* **Objective:** Master specialized architectures for sequential and temporal data, from RNNs to modern Transformers.
-* **Contents:**
-    * **The Challenge of Sequential Data:**
-        * Characteristics of sequences: variable length, temporal dependencies, context.
-        * Applications: Natural Language Processing (NLP), time series, speech, video.
-        * Why traditional neural networks struggle with sequences.
+### **Unidad 8: Datos secuenciales y la revolución transformadora**
+* **Objetivo:** Master arquitecturas especializadas para datos secuenciales y temporales, desde RNNs a Transformers modernos.
+* **Contenidos:**
+    * **El desafío de los datos secuenciales**
+        * Características de las secuencias: longitud variable, dependencias temporales, contexto.
+        * Aplicaciones: Procesamiento de Lenguas Naturales (NLP), series temporales, discurso, vídeo.
+        * Por qué las redes neuronales tradicionales luchan con secuencias.
     * **Recurrent Neural Networks (RNNs):**
-        * Architecture: hidden state as memory mechanism.
-        * Processing sequences: one element at a time.
+        * Arquitectura: estado oculto como mecanismo de memoria.
+        * Secuencias de procesamiento: un elemento a la vez.
         * Training RNNs: Backpropagation Through Time (BPTT).
-        * **RNN variants:**
-            * LSTM (Long Short-Term Memory): gates for selective memory.
-            * GRU (Gated Recurrent Units): simplified gating mechanism.
-            * Bidirectional RNNs: context from both directions.
-        * **Limitations:** Vanishing gradients, sequential processing bottleneck, difficulty with long-range dependencies.
-    * **Sequence-to-Sequence (Seq2seq) Models:**
-        * Encoder-decoder architecture for variable-length input/output.
-        * Applications: machine translation, text summarization, chatbots.
-        * Limitations: information bottleneck, fixed context vector.
-    * **The Attention Mechanism - The Breakthrough:**
-        * Motivation: allowing the model to focus on relevant parts of the input.
-        * **Attention fundamentals:**
-            * Query, Key, Value paradigm.
-            * Attention scores and weighted sum.
-            * Soft attention vs hard attention.
-        * Attention in seq2seq: dynamic context for each decoding step.
-    * **Transformer Architecture - "Attention is All You Need":**
-        * Eliminating recurrence: parallel processing of sequences.
-        * **Self-Attention mechanism:**
-            * Relating different positions within a single sequence.
-            * Multi-head attention: capturing diverse relationships in parallel.
-            * Complexity and efficiency considerations.
-        * **Positional encodings:** Injecting sequence order information.
-        * **Transformer building blocks:**
-            * **Encoder architecture:**
-                * Self-attention for bidirectional context understanding.
-                * Feed-forward networks and residual connections.
-                * Layer normalization.
-                * Applications: BERT, RoBERTa for classification and understanding.
-            * **Decoder architecture:**
-                * Masked self-attention for autoregressive generation.
-                * Prevents looking at future tokens during training.
-                * Applications: GPT family for text generation.
-            * **Encoder-Decoder architecture:**
-                * Cross-attention: connecting encoder outputs to decoder.
-                * Applications: T5, BART for translation, summarization, seq2seq tasks.
-        * **Transformers vs RNNs:** Advantages in parallelization, long-range dependencies, and efficiency.
-    * **Hugging Face Ecosystem - Practical Transformers:**
-        * Introduction to **Hugging Face** libraries:
-            * `transformers`: Pre-trained models for various tasks.
-            * `datasets`: Access to thousands of datasets.
-            * `tokenizers`: Fast text processing and preparation.
-        * Working with pre-trained models:
-            * Model selection: BERT, GPT, T5, RoBERTa, and specialized variants.
+        * **RNN:**
+            * LSTM (Long Short-Term Memory): puertas para la memoria selectiva.
+            * GRU (Gated Recurrent Units): mecanismo de medición simplificado.
+            * RNNs bidireccionales: contexto desde ambas direcciones.
+        * *Limitaciones* Desapareciendo gradientes, cuello de botella de procesamiento secuencial, dificultad con dependencias de largo alcance.
+    * ** Modelos de secuencia a secuencia (Seq2seq):**
+        * Arquitectura encoder-decoder para entrada / salida de longitud variable.
+        * Aplicaciones: traducción automática, resumen de texto, chatbots.
+        * Limitaciones: falta de información, vector de contexto fijo.
+    * **El Mecanismo de Atención - El avance:**
+        * Motivación: permitiendo que el modelo se centre en las partes pertinentes de la entrada.
+        * **Atención fundamental:**
+            * Consulta, clave, paradigma de valor.
+            * Marcas de atención y suma ponderada.
+            * Suave atención vs atención dura.
+        * Atención en seq2seq: contexto dinámico para cada paso decodificador.
+    * **Arquitectura del transformador - "Atención es todo lo que necesitas":**
+        * Eliminar la recurrencia: procesamiento paralelo de secuencias.
+        * ** Mecanismo de autoatención:**
+            * Relatando diferentes posiciones dentro de una sola secuencia.
+            * Atención multicabezas: capturar diversas relaciones en paralelo.
+            * Consideraciones de complejidad y eficiencia.
+        * **Codificación profesional:** Información de orden de secuencia de inyección.
+        * **Los bloques de construcción del transportador:**
+            * ** Arquitectura de encoder:**
+                * Autoatención para la comprensión del contexto bidireccional.
+                * Redes de alimentación y conexiones residuales.
+                * Normalización de capas.
+                * Aplicaciones: BERT, RoBERTa para clasificación y comprensión.
+            * **Arquitectura decodificador:**
+                * Autoatención enmascarada para la generación autoregresiva.
+                * Evita mirar las futuras fichas durante el entrenamiento.
+                * Aplicaciones: Familia GPT para la generación de texto.
+            * **Ecoder-Decoder architecture:**
+                * Interatención: conectar salidas de encoder a decodificador.
+                * Aplicaciones: T5, BART para la traducción, resummarización, tareas seq2seq.
+        * **Transformers vs RNNs:** Ventajas en la paralización, dependencias de largo alcance y eficiencia.
+    * **Hugging Face Ecosystem - Transformers prácticos:**
+        * Introducción a las bibliotecas **Hugging Face**:
+            * `transformers`: Modelos pre-entrenados para diversas tareas.
+            * `datasets`: Acceso a miles de conjuntos de datos.
+            * `tokenizers`: Procesamiento y preparación de texto rápido.
+        * Trabajando con modelos pre-entrenados:
+            * Selección modelo: BERT, GPT, T5, RoBERTa y variantes especializadas.
             * Tokenization and input preparation.
-            * Inference for common tasks: classification, generation, question answering.
-        * **Fine-tuning:** Adapting pre-trained models to specific tasks.
+            * Inferencia para tareas comunes: clasificación, generación, respuesta a preguntas.
+        * **Fine-tuning:** Adaptar modelos pre-entrenados a tareas específicas.
             * Transfer learning in NLP.
-            * Training strategies and hyperparameters.
-            * Efficient fine-tuning: LoRA and parameter-efficient methods.
+            * Estrategias de capacitación e hiperparametros.
+            * Financiamiento eficiente: LoRA y métodos eficientes del parámetro.
     * **Transformers Beyond NLP:**
-        * **Time series forecasting:** Temporal attention for predictions.
-        * Vision Transformers (ViT): applying transformers to images.
-        * Multi-modal transformers: combining text, images, and other modalities.
+        * **Pronóstico de series temporales:** Atención temporal para predicciones.
+        * Transformadores de visión (ViT): aplicar transformadores a imágenes.
+        * Transformadores multimodales: combinando texto, imágenes y otras modalidades.
 
----
+-..
 
-### **Project 8: Evolution of NLP Architectures - From Traditional ML to Transformers**
-*Applied after Unit 8 - Sequential Data and Transformers*
-* **Objective:** Comprehensive comparison of NLP architectures through the evolution of text classification approaches.
-* **Key Components:**
-    * **Consistent Problem:** Fake news detection throughout all phases for direct comparison.
-    * **Phase 1 - Traditional ML:** TF-IDF features with SVM, Naive Bayes, and ensemble methods.
-    * **Phase 2 - Neural Networks:** Multi-layer perceptrons with word embeddings.
-    * **Phase 3 - CNNs:** Convolutional networks for text classification with different filter sizes.
-    * **Phase 4 - RNNs:** LSTM and bidirectional LSTM networks for sequential processing.
-    * **Phase 5 - Transformers:** Fine-tuned BERT models for state-of-the-art performance.
-    * **Advanced Analysis:** Performance comparison, computational cost analysis, and interpretability study.
-    * **Practical Application:** Deployment-ready fake news detection API with multiple model options.
-* **Learning outcomes:** Understand the evolution of NLP and when to use each architecture.
-* **Note:** Uses high-level libraries (scikit-learn, PyTorch, Hugging Face) to focus on architecture comparison.
+### **Proyecto 8: Evolución de las arquitecturas NLP - Desde el ML tradicional a los transformadores**
+* Aplicado después de la Unidad 8 - Datos y Transformadores secuenciales*
+* **Objetivo:** Comparación amplia de las arquitecturas de NLP mediante la evolución de los enfoques de clasificación de textos.
+* ** Componentes clave:**
+    * **Problema persistente** Detección de noticias falsa en todas las fases para la comparación directa.
+    * **Phase 1 - Tradicional ML:** Características TF-IDF con SVM, Naive Bayes y métodos de ensemble.
+    * **Fase 2 - Redes neuronales:** Perceptores multicapa con incrustaciones de palabras.
+    * **Página 3 - CNNs:** Redes revolucionarias para clasificación de textos con diferentes tamaños de filtros.
+    * **Phase 4 - RNNs:** LSTM y redes bidireccionales LSTM para el procesamiento secuencial.
+    * **Phase 5 - Transformers:** Modelos BERT finos para el rendimiento de última generación.
+    * **Análisis avanzado** Comparación de rendimiento, análisis de costos computacionales y estudio de interpretabilidad.
+    * ** Aplicación práctica:** API de detección de noticias falsas con múltiples opciones de modelo.
+* ** Resultados de aprendizaje:** Comprender la evolución de NLP y cuándo utilizar cada arquitectura.
+* **Nota:** Utiliza bibliotecas de alto nivel (scikit-learn, PyTorch, Hugging Face) para centrarse en la comparación de arquitectura.
 
----
+-..
 
 ### **Unit 9: Generative AI and Large Language Models (LLMs)**
-* **Objective:** Understand and utilize models capable of generating new and coherent content.
-* **Contents:**
-    * **Generative Models Landscape:**
-        * What is Generative AI? Overview of different approaches.
-        * **Generative Adversarial Networks (GANs):**
-            * Generator vs Discriminator: adversarial training concept.
-            * Applications: image generation, data augmentation, style transfer.
-            * Training challenges: mode collapse, convergence issues.
-            * Historical importance and current use cases.
-        * **Autoregressive Models:**
-            * Sequential generation: predicting next token based on previous ones.
-            * Architecture examples: GPT family, traditional language models.
-            * Applications: text generation, code completion, time series forecasting.
-            * Strengths: coherent long-form generation, flexibility.
-        * **Diffusion Models:**
-            * Forward process: gradually adding noise to data.
-            * Reverse process: learning to denoise and generate samples.
-            * Modern applications: DALL-E 2, Midjourney, Stable Diffusion.
-            * Advantages over GANs: training stability, sample quality, mode coverage.
-        * **Comparison of generative approaches:** When to use each paradigm.
-    * **Large Language Models (LLMs):**
-        * Architecture foundation: Transformer-based autoregressive models (GPT).
-        * Scale and emergence: how size enables new capabilities.
-        * Pre-training and fine-tuning paradigm.
-    * **Prompt Engineering:** The art of designing effective inputs for LLMs.
-    * **LLM application development:**
-        * **Direct approach**: Native APIs (OpenAI, Anthropic) for maximum control and transparency.
-        * **LLM orchestration frameworks:**
-            * **LangChain**: General-purpose framework for building LLM applications.
-                * Chains: Composing LLM calls and logic.
-                * Agents: Dynamic tool selection and reasoning.
-                * Memory: Conversation history and context management.
-                * Document loaders and text splitters.
-            * **LlamaIndex**: Specialized framework for RAG and knowledge retrieval.
-                * Index construction and query engines.
-                * Advanced retrieval strategies.
-                * Integration with vector stores.
-            * **Comparison**: When to use each framework and how they complement each other.
-        * Memory and context management in conversational applications.
-    * **Vector databases and embeddings:**
-        * Concepts: similarity search, high-dimensional embeddings.
-        * **ChromaDB**: Practical and easy-to-use vector database.
-        * **Practical application**: Implementation of semantic search and RAG with real documents.
-    * **RAG (Retrieval-Augmented Generation):** Augmenting LLM knowledge with external documents to reduce hallucinations and use private data.
+* **Objetivo:** Entender y utilizar modelos capaces de generar contenido nuevo y coherente.
+* **Contenidos:**
+    * ** Modelos Generativos Paisaje:**
+        * ¿Qué es IA Generativa? Panorama general de diferentes enfoques.
+        * ** Redes adversarias de carácter consultivo (GAN):**
+            * Generador vs Discriminator: concepto de entrenamiento adversario.
+            * Aplicaciones: generación de imágenes, aumento de datos, transferencia de estilo.
+            * Problemas de entrenamiento: colapso del modo, problemas de convergencia.
+            * Importancia histórica y casos de uso actual.
+        * ** Modelos autoregresivos:**
+            * Generación secuencial: predecir el siguiente token basado en anteriores.
+            * Ejemplos de arquitectura: familia GPT, modelos de lenguaje tradicionales.
+            * Aplicaciones: generación de texto, terminación de código, pronóstico de series temporales.
+            * Fuerza: generación coherente de larga duración, flexibilidad.
+        * ** Modelos de difusión:**
+            * Proceso de avance: añadiendo gradualmente el ruido a los datos.
+            * Proceso inverso: aprender a denoizar y generar muestras.
+            * Aplicaciones modernas: DALL-E 2, Midjourney, Stable Diffusion.
+            * Ventajas sobre los GAN: estabilidad de entrenamiento, calidad de muestra, cobertura de modo.
+        * ** Comparación de enfoques generativos:** Cuando usar cada paradigma.
+    * **Modelos de idioma alto (LLM):**
+        * Fundación de arquitectura: Modelos autoregresivos basados en transformadores (GPT).
+        * Escala y emergencia: cómo el tamaño permite nuevas capacidades.
+        * paradigma de pre-entrenamiento y ajuste.
+    * **Prompt Engineering:** El arte de diseñar insumos eficaces para LLMs.
+    * ** Desarrollo de la aplicación de la LLM**
+        * ** Enfoque directo**: API nativas (OpenAI, Antropopic) para el máximo control y transparencia.
+        * ** Marcos de orquestación LLM:**
+            * **LangChain**: Marco de uso general para la construcción de aplicaciones de LLM.
+                * Cadenas: Composición de llamadas LLM y lógica.
+                * Agentes: Selección dinámica de herramientas y razonamiento.
+                * Memoria: Historia de la conversación y gestión del contexto.
+                * Cargadores de documentos y separadores de texto.
+            * **LlamaIndex**: Marco especializado para RAG y recuperación de conocimientos.
+                * Motores de construcción de índices y consultas.
+                * Estrategias avanzadas de recuperación.
+                * Integración con tiendas vectoriales.
+            * Comparación**: Cuando utilizar cada marco y cómo se complementan.
+        * Gestión de memoria y contexto en aplicaciones de conversación.
+    * ** Bases de datos de vehículos e incrustaciones:**
+        * Conceptos: búsqueda de similitudes, incrustaciones de alta dimensión.
+        * **ChromaDB**: Base de datos de vectores práctica y fácil de usar.
+        * ** Aplicación práctica**: Implementación de búsqueda semántica y RAG con documentos reales.
+    * **RAG (generación aumentada de recuperación):** Aumentar el conocimiento de LLM con documentos externos para reducir alucinaciones y utilizar datos privados.
     * **Agents and Model Context Protocol:**
-        * Creating autonomous systems that use LLMs to reason and execute actions.
-        * **Model Context Protocol (MCP):** Standard for connecting LLMs with external tools and data.
-        * Implementation of agents with advanced interaction capabilities.
+        * Crear sistemas autónomos que utilicen LLMs para razonar y ejecutar acciones.
+        * **Model Context Protocol (MCP):** Estándar para conectar LLMs con herramientas y datos externos.
+        * Implementación de agentes con capacidades de interacción avanzadas.
 
----
+-..
 
-### **Project 9: Intelligent Document Processing with RAG**
-*Applied after Unit 9 - Generative AI*
-* **Objective:** Complete RAG system for document analysis and question-answering.
-* **Key Components:**
-    * **Document ingestion:** PDF, Word, web scraping for diverse document sources.
-    * **Text processing:** Chunking strategies, embedding generation with different models.
-    * **Vector storage:** ChromaDB implementation with metadata filtering.
-    * **RAG pipeline:** Query processing, retrieval, and generation with LLMs.
-    * **Evaluation:** Retrieval accuracy, answer quality, and hallucination detection.
-    * **Practical application:** Corporate knowledge base or legal document analysis system.
-* **Advanced features:** Multi-modal RAG with images, conversation memory, and agent integration.
+### **Proyecto 9: Procesamiento de documentos inteligentes con RAG**
+* Aplicado después de la unidad 9 - Generative AI*
+* **Objetivo:** Sistema RAG completo para análisis de documentos y respuesta de preguntas.
+* ** Componentes clave:**
+    * ** Ingestión de documentos:** PDF, Word, web scraping para diversas fuentes de documentos.
+    * **Procesamiento de texto:** Estrategias de caza, generación de incrustación con diferentes modelos.
+    * ** Almacenamiento de vehículos:** Implementación de cromaDB con filtrado de metadatos.
+    * **Grupo de control:** Procesamiento de consultas, recuperación y generación con LLMs.
+    * **Evaluación** Precisión de recuperación, calidad de respuesta y detección de alucinaciones.
+    * ** Aplicación práctica:** Base de conocimientos corporativos o sistema legal de análisis de documentos.
+* ** Características avanzadas:** RAG multimodal con imágenes, memoria de conversación e integración de agentes.
 
 
----
+-..
 
 ### **Unit 10: MLOps and Production Machine Learning**
-* **Objective:** Master the practices and tools for deploying, monitoring, and maintaining ML models in production environments.
-* **Motivation:** Bridging the gap between model development and real-world deployment - the most critical skill for ML practitioners.
-* **Contents:**
-    * **The MLOps Landscape:**
-        * What is MLOps? DevOps principles applied to ML.
+* **Objetivo:** Domine las prácticas y herramientas para el despliegue, monitoreo y mantenimiento de modelos ML en entornos de producción.
+* **Motivación:** Bridging the gap between model development and real-world deployment - the most critical skill for ML practitioners.
+* **Contenidos:**
+    * **El paisaje de los MLOps:**
+        * ¿Qué es MLOps? Principios de DevOps aplicados al ML.
         * The ML production lifecycle: development, deployment, monitoring, retraining.
-        * Common challenges: model drift, data drift, reproducibility, scaling.
-        * MLOps maturity levels: from manual to fully automated.
+        * Desafíos comunes: deriva modelo, deriva de datos, reproducibilidad, escalado.
+        * Niveles de madurez MLOps: de manual a totalmente automatizado.
     * **Experiment Tracking and Model Management:**
-        * **MLflow:** Tracking experiments, parameters, metrics, and artifacts.
-        * **Weights & Biases (W&B):** Advanced experiment tracking and visualization.
-        * Model registry: Versioning models and managing their lifecycle.
-        * Comparing experiments: Finding the best model systematically.
-        * Reproducibility: Ensuring experiments can be replicated.
-    * **Model Deployment Strategies:**
+        * ** Flujo de sol** Seguimiento de experimentos, parámetros, métricas y artefactos.
+        * **Pesas " . Seguimiento y visualización de experimentos avanzados.
+        * Registro modelo: Versioning models and managing their lifecycle.
+        * Comparación de experimentos: Encontrar el mejor modelo sistemáticamente.
+        * Reproducibilidad: Asegurar experimentos se puede replicar.
+    * ** Estrategias de despliegue modelo:**
         * **Containerization with Docker:**
-            * Creating Docker images for ML models.
-            * Dockerfile best practices for ML applications.
-            * Managing dependencies and environment consistency.
+            * Creación de imágenes Docker para modelos ML.
+            * Dockerfile mejores prácticas para aplicaciones ML.
+            * Gestión de las dependencias y la coherencia del medio ambiente.
         * **API Development:**
-            * **FastAPI:** Creating RESTful endpoints for model inference.
-            * Request validation, error handling, and documentation.
-            * Synchronous vs asynchronous inference.
-            * Batch prediction endpoints.
-        * **Deployment patterns:**
-            * Blue-green deployment for zero downtime.
-            * Canary releases for gradual rollout.
-            * A/B testing for model comparison.
-            * Shadow mode for safe testing.
-    * **Cloud Deployment:**
-        * Overview of cloud ML platforms:
-            * **AWS SageMaker:** End-to-end ML platform.
-            * **Azure Machine Learning:** Microsoft's ML suite.
-            * **Google Cloud Vertex AI:** Unified ML platform.
-        * Serverless deployment: AWS Lambda, Azure Functions, Google Cloud Functions.
-        * Managed endpoints and auto-scaling.
-        * Cost optimization strategies.
+            * **FastAPI:** Creación de puntos finales RESTful para la inferencia modelo.
+            * Solicitar validación, manejo de errores y documentación.
+            * Sincronía vs inferencia asincrónica.
+            * Puntos finales de predicción de lotes.
+        * ** Patrones de despliegue**
+            * Despliegue verde azul para cero tiempo de inactividad.
+            * Las versiones canarias para el despliegue gradual.
+            * Pruebas A/B para comparación de modelos.
+            * Modo de sombra para pruebas seguras.
+    * ** Despliegue en voz alta**
+        * Vista general de las plataformas ML de la nube:
+            * **AWS SageMaker:** Plataforma ML final a extremo.
+            * **Aprendizaje de Máquina Azul:** La suite ML de Microsoft.
+            * **Google Cloud Vertex AI:** Plataforma ML unificada.
+        * Implementación sin servidor: AWS Lambda, Funciones Azure, Funciones de Google Cloud.
+        * Puntos finales gestionados y escalado automático.
+        * Estrategias de optimización de costos.
     * **Model Monitoring and Observability:**
-        * **Performance monitoring:** Tracking latency, throughput, error rates.
-        * **Model drift detection:**
-            * Data drift: Changes in input distributions.
-            * Concept drift: Changes in the relationship between inputs and outputs.
-            * Tools: Evidently AI, NannyML, Alibi Detect.
-        * **Alerting systems:** Setting up alerts for degraded performance.
-        * **Logging best practices:** Structured logging for ML systems.
-        * **Metrics dashboards:** Grafana, Prometheus for ML monitoring.
-    * **CI/CD for Machine Learning:**
-        * Continuous Integration: Automated testing for ML code and data.
-        * Continuous Deployment: Automated model deployment pipelines.
-        * **GitHub Actions:** Setting up ML pipelines.
+        * ** Supervisión de la ejecución** Seguimiento de latencia, rendimiento, tasas de error.
+        * **Detección de deriva modelo:**
+            * Desvío de datos: Cambios en las distribuciones de insumos.
+            * Concepto deriva: Cambios en la relación entre entradas y salidas.
+            * Herramientas: Evidently AI, NannyML, Alibi Detect.
+        * **Alerting systems:** Configuración de alertas para el rendimiento degradado.
+        * **Logging best practices:** Registro estructurado para sistemas ML.
+        * **Dibujos de medición:** Grafana, Prometheus para el monitoreo de ML.
+    * **CI/CD para el aprendizaje automático:**
+        * Integración continua: Pruebas automatizadas para código y datos ML.
+        * Despliegue continuo: tuberías de despliegue de modelos automatizadas.
+        * **GitHub Actions:** Configuración de tuberías ML.
         * Testing ML systems:
-            * Unit tests for data preprocessing and feature engineering.
-            * Integration tests for model serving.
-            * Smoke tests for deployed models.
-        * **Data validation:** Great Expectations for data quality checks.
+            * Pruebas de unidad para el procesamiento de datos e ingeniería de características.
+            * Pruebas de integración para servir modelo.
+            * Pruebas de humo para modelos desplegados.
+        * ** validación de datos:** Grandes expectativas para cheques de calidad de datos.
     * **Model Versioning and Governance:**
-        * **Data Version Control (DVC):** Versioning datasets and models.
-        * Model lineage: Tracking model origins and transformations.
-        * Model documentation and metadata.
-        * Compliance and audit trails.
+        * **Control de la versión de datos (DVC):** Configuración de datos y modelos.
+        * Lineaje modelo: Rastreo de orígenes y transformaciones modelo.
+        * Documentación modelo y metadatos.
+        * Senderos de cumplimiento y auditoría.
     * **Scaling ML Systems:**
-        * Horizontal vs vertical scaling.
-        * Load balancing for model inference.
-        * Caching strategies for common predictions.
-        * Batch vs real-time inference trade-offs.
-        * **Kubernetes for ML:** Basics of container orchestration.
-    * **Advanced Topics:**
-        * **Edge deployment:** TensorFlow Lite, ONNX for mobile and IoT.
-        * **Model optimization:** Quantization, pruning, distillation.
-        * **Multi-model serving:** Hosting multiple models efficiently.
-        * **Feature stores:** Centralized feature management (Feast, Tecton).
+        * Escalada horizontal vs vertical.
+        * Equilibrio de carga para inferencia modelo.
+        * Estrategias de captura para predicciones comunes.
+        * Batch vs en tiempo real.
+        * *Kubernetes for ML* Fundamentos de orquestación de contenedores.
+    * ** Temas avanzados:**
+        * **Edge deployment:** TensorFlow Lite, ONNX para móvil e IoT.
+        * ** Optimización modelo:** Cuantización, poda, destilación.
+        * **Multi-model servir:** Hosting múltiples modelos eficientemente.
+        * **Características:** Gestión centralizada de funciones (Feast, Tecton).
 
 
----
+-..
 
-## Transversal topics (to be taken into account but not as a separate unit)
+## Temas transversales (a tener en cuenta pero no como unidad separada)
 
-### Ethics and Interpretability in AI
-    * **Bias and Fairness:**
-        * Sources of bias: Data bias, algorithmic bias, interaction bias.
-        * **Types of fairness:**
-            * Individual fairness vs group fairness.
-            * Demographic parity, equalized odds, calibration.
-        * **Bias detection:** Statistical tests and fairness metrics.
+### Ética e interpretación en AI
+    * **Bias y equidad:**
+        * Fuentes de sesgo: Sesgo de datos, sesgo algorítmico, sesgo de interacción.
+        * **Tipos de equidad:**
+            * La equidad individual frente a la equidad de grupo.
+            * Paridad demográfica, probabilidades igualadas, calibración.
+        * **Detección de Bias:** Pruebas estadísticas y métricas de imparcialidad.
         * **Bias mitigation:**
-            * Pre-processing: Reweighting, sampling strategies.
-            * In-processing: Fair learning algorithms.
-            * Post-processing: Threshold adjustment.
-        * **Tools:** AI Fairness 360, Fairlearn.
-    * **Model Interpretability and Explainability:**
-        * **Why interpretability matters:** Trust, debugging, compliance, scientific discovery.
-        * **Global vs local interpretability:**
-            * Global: Understanding the model's overall behavior.
-            * Local: Explaining individual predictions.
-        * **Intrinsically interpretable models:**
-            * Decision trees, linear models, rule-based systems.
-            * Trade-offs: Interpretability vs performance.
-        * **Post-hoc explanation methods:**
-            * **SHAP (SHapley Additive exPlanations):** Unified framework for model explanations.
-            * **LIME (Local Interpretable Model-agnostic Explanations):** Local surrogate models.
-            * **Attention visualization:** Understanding what transformers focus on.
-            * **Saliency maps:** Visualizing important regions in images.
-        * **Practical tools:** SHAP, LIME, Captum (for PyTorch), InterpretML.
+            * Pre-procesamiento: Repeso, estrategias de muestreo.
+            * En proceso: algoritmos de aprendizaje justo.
+            * Post-procesamiento: Ajuste del umbral.
+        * **Herramientas: AI Fairness 360, Fairlearn.
+    * ** Interpretabilidad y Explicabilidad Modelo:**
+        * **Por qué la interpretación importa:** Confianza, depuración, cumplimiento, descubrimiento científico.
+        * **Global vs local interpretationability:**
+            * Global: Comprender el comportamiento general del modelo.
+            * Local: Explicando predicciones individuales.
+        * ** Modelos intrínsecamente interpretables:**
+            * Árboles de decisiones, modelos lineales, sistemas basados en reglas.
+            * Cambios: Interpretabilidad vs rendimiento.
+        * ** Métodos de explicación post-hoc:**
+            * **SHAP (SHapley Additive exPlanations):** Marco unificado para explicaciones modelo.
+            * **LIME (Explicaciones modelo-agnósticas interpretables locales):** Modelos locales de sustitución.
+            * ** Visualización de la atención:** Comprender en qué se enfocan los transformadores.
+            * ** Mapas de emergencia:** Visualización de importantes regiones en imágenes.
+        * ** Herramientas prácticas:** SHAP, LIME, Captum (para PyTorch), InterpretML.
    
 
----
+-..
 
-## **Optional Advanced Topics** (Time Permitting or Self-Study)
+## **Temáticas avanzadas opcionales** (Permiso de tiempo o autoestudio)
 
-### **Time Series Forecasting**
-* ARIMA, SARIMA, and classical methods.
-* Prophet for business time series.
-* Transformer-based forecasting (Temporal Fusion Transformer).
-* Applications: Demand forecasting, financial predictions, anomaly detection in time series.
+### **Forecasting Series Time**
+* ARIMA, SARIMA y métodos clásicos.
+* Profeta para la serie de tiempo de negocios.
+* Pronóstico basado en transformadores (Transformador de Fusión Temporal).
+* Aplicaciones: Predicción de la demanda, predicciones financieras, detección de anomalías en series temporales.
 
 ### **Multimodal AI**
-* CLIP: Connecting vision and language.
-* Vision-language models for image captioning and VQA.
-* Audio processing and speech recognition.
-* Multimodal embeddings and applications.
+* CLIP: Conexión de la visión y el lenguaje.
+* Modelos de lenguaje de visión para capturar imágenes y VQA.
+* Tratamiento de audio y reconocimiento de discursos.
+* Embeddings multimodales y aplicaciones.
 
-### **Advanced Deep Learning Topics**
+### ** Temas avanzados de aprendizaje profundo**
 * Graph Neural Networks (GNNs) for graph-structured data.
-* Meta-learning and few-shot learning.
-* Self-supervised learning techniques.
+* Aprendizaje de meta-aprendizaje y poca monta.
+* Técnicas de aprendizaje autosupervisadas.
 * Neural Architecture Search (NAS).
 
-### **Advanced LLM Techniques**
-* **Fine-tuning at scale:** LoRA, QLoRA, PEFT in depth.
-* **Prompt engineering:** Advanced techniques, chain-of-thought, few-shot learning.
-* **LLM evaluation:** Benchmarks, human evaluation, automated metrics.
-* **Constitutional AI and RLHF:** Aligning models with human values.
+### ** Técnicas avanzadas de LLM**
+* **Fine-tuning at scale:** LoRA, QLoRA, PEFT en profundidad.
+* **Prompt engineering:** Técnicas avanzadas, cadena de pensamiento, aprendizaje corto.
+* ** Evaluación de la LLM** Parámetros, evaluación humana, métrica automatizada.
+* **IA constitucional y RLHF** Alinear modelos con valores humanos.

@@ -1,153 +1,153 @@
-# Neural Networks and Deep Learning
+# Redes neuronales y aprendizaje profundo
 
-## Historical milestones
+## Principales hitos históricos
 
-### Early foundations (1943–2011)
+### Fundaciones tempranas (1943–2011)
 
-- 1943: McCulloch and Pitts propose the first mathematical model of a neuron.
-- 1958: Frank Rosenblatt develops the **Perceptron**, considered the first implemented neural network.
-- 1969: Minsky and Papert publish "Perceptrons," demonstrating the limitations of the simple perceptron, which led to the "AI winter."
-- 1986: Hinton, Rumelhart, and Williams publish the ***backpropagation*** algorithm, which **allows training multilayer neural networks**.
-- 1988: LeCun et al. present the first convolutional neural network model for handwritten character recognition (MNIST).
-- 1997: Hochreiter & Schmidhuber introduce **LSTMs** (Long Short-Term Memory), fundamental for processing sequences and time series.
+- 1943: McCulloch y Pitts proponen el primer modelo matemático de una neurona.
+- 1958: Frank Rosenblatt desarrolla el **Perceptron**, considerado la primera red neuronal implementada.
+- 1969: Minsky y Papert publican "Perceptrons", demostrando las limitaciones del simple perceptrón, que llevó al "invierno de la IA".
+- 1986: Hinton, Rumelhart y Williams publican el algoritmo ***backpropagation***, que ** permite entrenar redes neuronales multicapa**.
+- 1988: LeCun et al. presentan el primer modelo de red neuronal convocional para el reconocimiento de caracteres manuscritos (MNIST).
+- 1997: Hochreiter & Schmidhuber presenta **LSTMs** (Long Short-Term Memory), fundamental para procesar secuencias y series temporales.
 
 ### The AI Boom (2012-present)
 
-- Causes:
-    - Increased computing power (GPUs, TPUs)
-    - Availability of huge datasets (Internet, Big Data)
-    - Advances in algorithms and network architectures
-    - Huge increase in funding and industrial investment
+- Causas:
+    - Aumento de la potencia de computación (GPU, TPU)
+    - Disponibilidad de conjuntos de datos enormes (Internet, Big Data)
+    - Avances en algoritmos y arquitecturas de red
+    - Aumento considerable de la financiación y la inversión industrial
 
-- Main milestones:
-    - 2012: **AlexNet** (Krizhevsky, Sutskever, and Hinton) reduces the error on **ImageNet** to 15.3% (from 26%), demonstrating the power of CNNs and marking the beginning of the boom.
-    - 2014: Facebook's **DeepFace** achieves near-human accuracy (97.35%) in facial recognition.
-    - 2014: Ian Goodfellow introduces **GANs** (Generative Adversarial Networks), revolutionizing content generation.
-    - 2015: **ResNet** from Microsoft Research introduces residual connections, allowing the training of networks with over 100 layers.
-    - 2016: DeepMind's **AlphaGo** defeats world champion Lee Sedol using deep neural networks trained with supervised and reinforcement learning with advanced Monte Carlo tree search techniques. ([Documentary](https://www.youtube.com/watch?v=WXuK6gekU1Y)).
-    - 2017: The **Transformer** architecture appears with the publication of "**Attention is all you need**" by Google Brain, transforming language processing.
-    - 2018: Google's **BERT** sets new records in natural language understanding.
-    - 2020: OpenAI's **GPT-3** demonstrates emerging capabilities in large-scale language models.
-    - 2021: **Diffusion models** (DALL-E, GLIDE) begin to dominate realistic image generation.
-    - 2022: OpenAI's **ChatGPT** (GPT-3.5) popularizes conversational assistants.
-    - 2023: OpenAI's **GPT-4o** and the proliferation of **multimodal** models (text, image, audio, video).
-    - 2024: First models with advanced reasoning capabilities (**OpenAI o1**).
-    - 2025: **DeepSeek-R1** (*open-weights*) lowers the cost of language models with performance similar to o1.
+- Principales hitos:
+    - 2012: **AlexNet** (Krizhevsky, Sutskever e Hinton) reduce el error en **ImageNet** a 15.3% (del 26%), demostrando el poder de las CNN y marcando el comienzo del boom.
+    - 2014: Facebook **DeepFace** logra una precisión casi humana (97.35%) en reconocimiento facial.
+    - 2014: Ian Goodfellow presenta **GANs** (Generative Adversarial Networks), revolucionando la generación de contenidos.
+    - 2015: **ResNet** de Microsoft Research introduce conexiones residuales, permitiendo la formación de redes con más de 100 capas.
+    - 2016: DeepMind **AlphaGo** derrota al campeón mundial Lee Sedol usando redes neuronales profundas entrenadas con el aprendizaje supervisado y reforzado con técnicas avanzadas de búsqueda de árboles de Monte Carlo. ([Documental](https://www.youtube.com/watch?v=WXuK6gekU1Y)).
+    - 2017: La arquitectura **Transformer** aparece con la publicación de "**Atención es todo lo que necesitas**" de Google Brain, transformando el procesamiento del lenguaje.
+    - 2018: El **BERT** de Google establece nuevos registros en la comprensión del lenguaje natural.
+    - 2020: OpenAI **GPT-3** demuestra capacidades emergentes en modelos de lenguaje a gran escala.
+    - 2021: **Modelos de difusión** (DALL-E, GLIDE) comienzan a dominar la generación de imagen realista.
+    - 2022: OpenAI **ChatGPT** (GPT-3.5) populariza asistentes de conversación.
+    - 2023: OpenAI **GPT-4o** y la proliferación de **multimodal** modelos (texto, imagen, audio, vídeo).
+    - 2024: Primeros modelos con capacidades avanzadas de razonamiento (**OpenAI o1**).
+    - 2025: **DeepSeek-R1** (*pesos abiertos*) reduce el costo de los modelos de idiomas con un rendimiento similar al o1.
 
 ## The Perceptron: The Artificial Neuron
 
-The perceptron is the fundamental unit of a neural network, inspired by the basic functioning of a biological neuron. It's the simplest form of a neural network, which in many ways, laid the groundwork for more complex networks.
+El perceptrón es la unidad fundamental de una red neuronal, inspirada en el funcionamiento básico de una neurona biológica. Es la forma más simple de una red neuronal, que de muchas maneras puso las bases para redes más complejas.
 
-> [What is a Neural Network? Part 1: The Neuron | DotCSV](https://www.youtube.com/watch?v=MRIv2IwFTPg&list=PL-Ogd76BhmcC_E2RjgIIJZd1DQdYHcVf0&index=7)
+> [¿Qué es una Red Neural? Parte 1: La neurona tóxica DotCSV](https://www.youtube.com/watch?v=MRIv2IwFTPg&list=PL-Ogd76BhmcC_E2RjgIIJZd1DQdYHcVf0&index=7)
 
-> [ChatGPT is made from 100 million of these [The Perceptron]](https://www.youtube.com/watch?v=l-9ALe3U-Fg)
+> [ChatGPT se hace de 100 millones de estos [El Perceptrón] https://www.youtube.com/watch?v=l-9ALe3U-Fg)
 
-### Structure of the Perceptron
+### Estructura del Perceptrón
 
-[![Perceptron](./img/perceptron.png)](https://aiml.com/what-is-a-perceptron/)
+[XPHXIMG0XPHX](https://aiml.com/what-is-a-perceptron/)
 
-A perceptron takes several binary inputs and produces a single binary output. It works by weighing the importance of each input and, if the sum of the weighted inputs surpasses a certain threshold, it "fires" (outputs a 1). Otherwise, it doesn't (outputs a 0).
+Un perceptron toma varias entradas binarias y produce una única salida binaria. Funciona pesando la importancia de cada entrada y, si la suma de los insumos ponderados supera un determinado umbral, "fuego" (salida a 1). De lo contrario, no lo hace (salida 0).
 
-A perceptron consists of:
-1.  **Inputs**: Numerical values that represent features of the data.
-2.  **Weights**: Values that determine the importance of each input. A higher weight means the input has more influence on the output.
-3.  **Bias**: An additional parameter that allows adjusting the activation threshold, making the model more flexible.
-4.  **Weighted Sum**: The inputs are multiplied by their corresponding weights and summed up.
-5.  **Activation Function**: This function decides whether the neuron should be activated or not based on the weighted sum. In a simple perceptron, this is a simple step function.
+Un perceptrón consiste en:
+1.  ** Entradas**: Valores numéricos que representan características de los datos.
+2.  **Pesas**: Valores que determinan la importancia de cada entrada. Un peso superior significa que la entrada tiene más influencia en la salida.
+3.  **Bias**: Un parámetro adicional que permite ajustar el umbral de activación, haciendo que el modelo sea más flexible.
+4.  **Sum de peso**: Las entradas se multiplican por sus pesos correspondientes y se resumen.
+5.  ** Función de acción**: Esta función decide si la neurona debe activarse o no sobre la base de la suma ponderada. En un perceptrón simple, esta es una simple función paso.
 
-### Limitations of the Simple Perceptron
+### Limitaciones del Perceptrón Simple
 
-The simple perceptron can only solve linearly separable problems. This means it can classify data that can be separated by a single straight line. It can learn simple logical operations like AND and OR, but it famously fails with the XOR operation, which is not linearly separable. This limitation led to a period of reduced interest in neural networks, known as the "AI winter."
+El perceptrón simple sólo puede resolver problemas linealmente separables. Esto significa que puede clasificar datos que pueden ser separados por una sola línea recta. Puede aprender operaciones lógicas simples como AND y OR, pero famosamente falla con la operación XOR, que no es linealmente separable. Esta limitación llevó a un período de menor interés en las redes neuronales, conocido como el "invierno AI"
 
 ## Multilayer Neural Networks (MLP)
 
-To overcome the limitations of the simple perceptron, researchers developed multilayer neural networks, also known as Multilayer Perceptrons (MLPs). These networks consist of multiple layers of perceptrons, allowing them to learn much more complex patterns.
+Para superar las limitaciones del perceptrón simple, los investigadores desarrollaron redes neuronales multicapas, también conocidas como Perceptrones Multilayer (MLPs). Estas redes consisten en múltiples capas de perceptrones, permitiéndoles aprender patrones mucho más complejos.
 
-> [3Blue1Brown - But what is a neural network?](https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)
+> [3Blue1Brown - ¿Pero qué es una red neuronal?](https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)
 
-### Structure of a Multilayer Neural Network
+### Estructura de una red neuronal multicapa
 
-A multilayer neural network contains:
-1.  **Input layer**: Receives the initial data.
-2.  **Hidden layers**: One or more layers that perform internal transformations on the data. These are the key to learning complex, non-linear relationships.
-3.  **Output layer**: Produces the final result (e.g., a classification or a regression value).
+Una red neuronural multicapa contiene:
+1.  **La capa de entrada**: Recibe los datos iniciales.
+2.  **Las capas ocultas**: Una o más capas que realizan transformaciones internas en los datos. Estas son las claves para aprender relaciones complejas y no lineales.
+3.  **La capa de salida**: Produce el resultado final (por ejemplo, una clasificación o un valor de regresión).
 
 
 ![MLP](./img/mlp.gif)
 
-### Why do we need hidden layers?
+### ¿Por qué necesitamos capas ocultas?
 
-Hidden layers allow the network to learn hierarchical features. Each layer learns to recognize certain patterns in the data, and subsequent layers combine these patterns to learn even more complex representations. This is what gives deep learning its power.
+Las capas ocultas permiten que la red aprenda características jerárquicas. Cada capa aprende a reconocer ciertos patrones en los datos, y capas posteriores combinan estos patrones para aprender representaciones aún más complejas. Esto es lo que da el aprendizaje profundo su poder.
 
-## Activation Functions
+## Funciones de activación
 
-Activation functions are a crucial component of neural networks. They introduce non-linearity into the model, which is what allows the network to learn from data that is not linearly separable. Without them, a neural network would just be a linear model, no matter how many layers it has.
+Las funciones de activación son un componente crucial de las redes neuronales. Presentan la no-linearidad en el modelo, que es lo que permite a la red aprender de datos que no es linealmente separable. Sin ellos, una red neuronal sería sólo un modelo lineal, sin importar cuántas capas tenga.
 
-### Main Activation Functions
+### Funciones de activación principal
 
-1.  **Sigmoid**: Compresses any input into a range between 0 and 1. It's often used in the output layer for binary classification problems.
-2.  **Hyperbolic Tangent (tanh)**: Similar to the sigmoid, but it compresses values into a range between -1 and 1.
-3.  **ReLU (Rectified Linear Unit)**: This is one of the most popular activation functions in modern deep learning. It's very simple: it outputs the input if it's positive, and 0 otherwise. It's computationally efficient and helps mitigate the "vanishing gradient" problem.
-4.  **Softmax**: Often used in the output layer for multiclass classification problems. It converts a vector of raw scores into a probability distribution, where each value represents the probability of the input belonging to a certain class.
+1.  **Sigmoid**: Comprende cualquier entrada en un rango entre 0 y 1. A menudo se utiliza en la capa de salida para problemas de clasificación binaria.
+2.  ** Tangente Hiperbólico (tanh)**: Similar a la sigmoide, pero comprime valores en un rango entre -1 y 1.
+3.  **ReLU (Rectified Linear Unit)**: Esta es una de las funciones de activación más populares en el aprendizaje profundo moderno. Es muy simple: produce la entrada si es positiva, y 0 de lo contrario. Es computacionalmente eficiente y ayuda a mitigar el problema "desvanecedor gradiente".
+4.  **Softmax**: A menudo se utiliza en la capa de salida para problemas de clasificación de varias clases. Convierte un vector de puntajes crudos en una distribución de probabilidad, donde cada valor representa la probabilidad de la entrada perteneciente a una determinada clase.
 
-## Training: **Gradient Descent**
+## Formación: **Descenso gradiente**
 
-> [What is Gradient Descent? Artificial Intelligence Algorithm | DotCSV](https://www.youtube.com/watch?v=A6FiCDoz8_4)
+> [¿Qué es Gradient Descent? Algoritmo de Inteligencia Artificial ← DotCSV](https://www.youtube.com/watch?v=A6FiCDoz8_4)
 
 > [3Blue1Brown - Gradient descent, how neural networks learn](https://www.youtube.com/watch?v=IHZwWFHWa-w&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=2)
 
-Training a neural network is the process of finding the optimal weights and biases that allow the network to make accurate predictions. This is done by minimizing a **loss function**, which measures how far the model's predictions are from the actual correct values.
+Entrenar una red neuronal es el proceso de encontrar los pesos y sesgos óptimos que permiten a la red hacer predicciones precisas. Esto se hace minimizando una función **pérdida**, que mide hasta qué punto las predicciones del modelo son de los valores reales correctos.
 
-The most common optimization algorithm used to train neural networks is **Gradient Descent**. It works by iteratively adjusting the model's parameters (weights and biases) in the direction that reduces the loss.
+El algoritmo de optimización más común utilizado para entrenar redes neuronales es **Gradient Descent**. Funciona ajustando iterativamente los parámetros del modelo (pesos y sesgos) en la dirección que reduce la pérdida.
 
-1.  **Key concepts**:
-    -   **Gradient**: A vector that points in the direction of the steepest ascent of the loss function. To minimize the loss, we move in the opposite direction of the gradient.
-    -   **Learning rate**: A small value that controls the size of the steps we take during optimization. A learning rate that is too high can cause the model to overshoot the optimal solution, while one that is too low can make the training process very slow.
+1.  **Conceptos clave**:
+    -   **Gradient**: Un vector que apunta en la dirección del ascenso más pronunciado de la función de pérdida. Para minimizar la pérdida, nos movemos en la dirección opuesta del gradiente.
+    -   ** Tasa de aprendizaje**: Un pequeño valor que controla el tamaño de los pasos que tomamos durante la optimización. Una tasa de aprendizaje demasiado alta puede hacer que el modelo supere la solución óptima, mientras que una que es demasiado baja puede hacer que el proceso de entrenamiento sea muy lento.
 
-2.  **Process**:
-    -   The model makes a prediction (this is called the *forward pass*).
-    -   The loss is calculated by comparing the prediction with the actual value.
-    -   The gradient of the loss with respect to each parameter is calculated.
-    -   The parameters are updated by taking a small step in the opposite direction of the gradient.
+2.  **Proceso**:
+    -   El modelo hace una predicción (esto se llama el *paso adelante*).
+    -   La pérdida se calcula comparando la predicción con el valor real.
+    -   Se calcula el gradiente de la pérdida con respecto a cada parámetro.
+    -   Los parámetros se actualizan dando un pequeño paso en la dirección opuesta del gradiente.
 
-3.  **Variants**:
-    -   **Batch Gradient Descent**: Uses the entire dataset to compute the gradient at each step. It's slow and memory-intensive for large datasets.
-    -   **Stochastic Gradient Descent (SGD)**: Uses a single randomly selected data point to compute the gradient at each step. It's much faster but can be noisy.
-    -   ***Mini-batch Gradient Descent***: A compromise between the two. It uses a small, random batch of data to compute the gradient. This is the most common approach in deep learning.
+3.  **Variantes**:
+    -   **Descenso de ingredientes* Utiliza todo el conjunto de datos para calcular el gradiente a cada paso. Es lento y intensivo en memoria para grandes conjuntos de datos.
+    -   **Descenso de gradiente estocástico**: Utiliza un único punto de datos seleccionado al azar para calcular el gradiente a cada paso. Es mucho más rápido pero puede ser ruidoso.
+    -   ***Mini-batch Gradient Descent***: Un compromiso entre los dos. Utiliza un pequeño y aleatorio lote de datos para calcular el gradiente. Este es el enfoque más común en el aprendizaje profundo.
 
 ## ***Backpropagation***
 
-Backpropagation is the algorithm that allows us to efficiently train deep, multi-layer neural networks. It's the engine that powers modern deep learning.
+La retropropagación es el algoritmo que nos permite capacitar eficientemente redes neuronales profundas y multicapas. Es el motor que potencia el aprendizaje profundo moderno.
 
-> [What is a Neural Network? Part 3: Backpropagation | DotCSV](https://www.youtube.com/watch?v=eNIqz_noix8&list=PL-Ogd76BhmcC_E2RjgIIJZd1DQdYHcVf0&index=10)
+> [¿Qué es una Red Neural? Parte 3: Backpropagation ← DotCSV](https://www.youtube.com/watch?v=eNIqz_noix8&list=PL-Ogd76BhmcC_E2RjgIIJZd1DQdYHcVf0&index=10)
 
 > [3Blue1Brown - Backpropagation](https://www.youtube.com/watch?v=Ilg3gGewQ5U&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=3)
 
-### How does it work?
+### ¿Cómo funciona?
 
-1.  **Forward Pass**: The network calculates its output for a given input, passing the data from the input layer through the hidden layers to the output layer.
-2.  **Error Calculation**: The output is compared with the correct value to calculate the error or loss.
-3.  **Backward Pass**: The error is propagated backward through the network, from the output layer to the input layer. During this process, the algorithm calculates how much each weight and bias contributed to the overall error.
-4.  **Weight Update**: The weights and biases are adjusted based on their contribution to the error, using an optimization algorithm like Gradient Descent.
+1.  **Pase adelante**: La red calcula su salida para una entrada dada, pasando los datos de la capa de entrada a través de las capas ocultas a la capa de salida.
+2.  **Error Calculation**: La salida se compara con el valor correcto para calcular el error o la pérdida.
+3.  **Paso de regreso**: El error se propaga hacia atrás a través de la red, desde la capa de salida a la capa de entrada. Durante este proceso, el algoritmo calcula cuánto cada peso y sesgo contribuyó al error general.
+4.  ** Actualización de peso**: Los pesos y sesgos se ajustan en función de su contribución al error, utilizando un algoritmo de optimización como Gradient Descent.
 
-The mathematical foundation of backpropagation is the **chain rule** from calculus, which allows it to efficiently compute the gradients for all the parameters in the network.
+La base matemática de la retropropagación es la regla ** cadena** del cálculo, que le permite computar eficientemente los gradientes para todos los parámetros de la red.
 
 ## ***Deep Learning***
 
-*Deep learning* refers to neural networks with many hidden layers (hence "deep"). These deep architectures allow the models to learn representations of data at various levels of abstraction.
+*Aprendizaje profundo* se refiere a redes neuronales con muchas capas ocultas (de ahí "deep"). Estas arquitecturas profundas permiten a los modelos aprender representaciones de datos en varios niveles de abstracción.
 
-![Deep Learning](./img/deep_learning.jpg)
+![Aprendizaje profundo](./img/deep_learning.jpg)
 
-### Advantages of Deep Learning
+### Ventajas del aprendizaje profundo
 
-1.  **Automatic feature learning**: Unlike traditional machine learning, where feature engineering is often a manual and time-consuming process, deep learning models can learn the relevant features directly from the data.
-2.  **Ability to model complex relationships**: Deep learning excels at modeling complex, non-linear relationships, making it particularly powerful for unstructured data like images, text, and sound.
-3.  **Transferability**: Knowledge learned from one task can often be transferred to another. This is known as **transfer learning**, and it allows us to build powerful models even with limited data.
+1.  **Aprendizaje automático de características**: A diferencia del aprendizaje tradicional de la máquina, donde la ingeniería de características es a menudo un proceso manual y prolongado, los modelos de aprendizaje profundo pueden aprender las características relevantes directamente de los datos.
+2.  ** Capacidad para modelar relaciones complejas**: El aprendizaje profundo se destaca en las relaciones complejas y no lineales, lo que hace que sea particularmente poderoso para datos no estructurados como imágenes, texto y sonido.
+3.  **Transferibilidad**: El conocimiento aprendido de una tarea puede ser transferido a otra. Esto se conoce como **transfer learning**, y nos permite construir modelos poderosos incluso con datos limitados.
 
 ### Popular Deep Learning Architectures
 
-1.  **Convolutional Neural Networks (CNNs)**: Specialized for processing grid-like data, such as images. They use convolutional layers to detect spatial patterns like edges, textures, and shapes.
-2.  **Recurrent Neural Networks (RNNs) and LSTM/GRU**: Designed for sequential data, like time series or text. They have a form of "memory" that allows them to maintain information about previous inputs in the sequence.
-3.  **Transformers**: A more modern architecture, also designed for sequential data, that has revolutionized natural language processing. It uses a mechanism called "attention" to weigh the importance of different parts of the input data. Models like BERT and GPT are based on the Transformer architecture.
-4.  **Generative Adversarial Networks (GANs)**: Consist of two networks, a generator and a discriminator, that compete against each other. They are used to generate new, synthetic data that is similar to the training data (e.g., creating realistic images).
-5.  **Autoencoders**: Used for unsupervised learning, typically for dimensionality reduction or anomaly detection. They learn to compress data into a smaller representation and then reconstruct it back to its original form.
+1.  ** Redes neuronales revolucionarias**: Especializado para el procesamiento de datos similares a la red, como imágenes. Utilizan capas convolutivas para detectar patrones espaciales como bordes, texturas y formas.
+2.  **Recurrent Neural Networks (RNNs) and LSTM/GRU**: Diseñado para datos secuenciales, como series temporales o texto. Tienen una forma de "memoria" que les permite mantener información sobre entradas anteriores en la secuencia.
+3.  **Transformers**: Una arquitectura más moderna, también diseñada para datos secuenciales, que ha revolucionado el procesamiento del lenguaje natural. Utiliza un mecanismo llamado "atención" para pesar la importancia de diferentes partes de los datos de entrada. Modelos como BERT y GPT se basan en la arquitectura Transformer.
+4.  ** Redes adversarias de carácter consultivo (GAN)**: Consista de dos redes, un generador y un discriminador, que compiten entre sí. Se utilizan para generar nuevos datos sintéticos similares a los datos de entrenamiento (por ejemplo, creando imágenes realistas).
+5.  **Autoencoders**: Se utiliza para el aprendizaje no supervisado, normalmente para la reducción de la dimensionalidad o la detección de anomalías. Aprenden a comprimir datos en una representación más pequeña y luego lo reconstruyen de nuevo a su forma original.

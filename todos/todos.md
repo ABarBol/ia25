@@ -1,45 +1,45 @@
 # TODOs
 
-This file contains a list of projects, TODOs and ideas that can be implemented and can be used to improve this repository (and your califications!)
+Este archivo contiene una lista de proyectos, TODO e ideas que se pueden implementar y se pueden utilizar para mejorar este repositorio (y sus calificaciones!)
 
-If you want to contribute, please pick an item from the list and create a pull request with your implementation. 
+Si desea contribuir, por favor seleccione un artículo de la lista y cree una solicitud de tirada con su implementación.
 
-## Proposals
+## Propuestas
 
-### Notes improvements
+### Mejoras en las notas
 
-- Compare Python vs C efficiency multiplying matrices. Why is Python slower? why is still used for scientific computing?
-Why is matrix multiplication so important in AI?
-    - Use numpy, cython and pypy to improve Python performance.
-    - Extend the comparison to CUDA. What is CUDA? How does it work? Why is it so important for AI?
-    - Extend the comparison to other languages like Julia, Mojo or any other language that is popular for scientific computing or AI.
-
-
-- Any PR in current will be appreciated!
-
-### Machine Learning Examples
-
-- Implement a simple linear regression model from scratch.
-- Develop a Naive Bayes classifier for spam detection. Explain it step by step in a notebook with a pedagogical approach, since it' s a classic example of machine learning.
-
-### Agents / MLOps
-
-- Create an agent that reviews every new content added to this repository and suggests improvements.
-    - Use GitHub Actions to automate the process and create issues with the suggestions.
-
-- Create an agent that translates this repository to Spanish and/or Galician every time a new commit is made to the main branch. 
-
-- Use GitHub Actions to automate the process and update another repo with the translated content.
+- Compare Python vs C de eficiencia multiplicando matrices. ¿Por qué Python es más lento? ¿Por qué todavía se utiliza para la computación científica?
+¿Por qué la multiplicación de matriz es tan importante en AI?
+    - Use numpy, cython y pypy para mejorar el rendimiento de Python.
+    - Extender la comparación a CUDA. ¿Qué es CUDA? ¿Cómo funciona? ¿Por qué es tan importante para AI?
+    - Extender la comparación a otros idiomas como Julia, Mojo o cualquier otro idioma que sea popular para la informática científica o AI.
 
 
-## How to implement the TODOs
+- Cualquier PR en la actualidad será apreciado!
 
-- Create a fork of this repository.
-- For each TODO, create a new branch with a descriptive name (e.g., `compare-python-c-efficiency`).
-- Implement the changes or additions as described in the TODO.
-- Test your changes to ensure they work as expected.
-- Create a pull request to merge your branch into the main branch.
+### Ejemplos de aprendizaje automático
 
-Using AI tools like ChatGPT or GitHub Copilot is allowed and encouraged, but please make sure to review and understand the code before submitting a pull request.
+- Implementar un modelo de regresión lineal simple desde cero.
+- Desarrollar un clasificador de Naive Bayes para la detección de spam. Explíquelo paso a paso en un cuaderno con un enfoque pedagógico, ya que es un ejemplo clásico del aprendizaje automático.
 
-You can use AI agents in background and create a PR with the results, but you will need to make a fork of this repository and create a PR with the results.
+### Agentes / MLOps
+
+- Cree un agente que revise cada nuevo contenido añadido a este repositorio y sugiere mejoras.
+    - Utilice GitHub Actions para automatizar el proceso y crear problemas con las sugerencias.
+
+- Cree un agente que traduzca este repositorio al español y/o gallego cada vez que se haga un nuevo compromiso a la rama principal.
+
+- Utilice GitHub Actions para automatizar el proceso y actualizar otro repo con el contenido traducido.
+
+
+## Cómo implementar los TODO
+
+- Cree un tenedor de este repositorio.
+- Para cada TODO, cree una nueva rama con un nombre descriptivo (por ejemplo, `compare-python-c-efficiency`).
+- Implementar los cambios o adiciones que se describen en el TODO.
+- Pruebe sus cambios para asegurar que trabajen como se esperaba.
+- Cree una solicitud de tirada para fusionar su rama en la rama principal.
+
+Utilizar herramientas AI como ChatGPT o GitHub Copilot está permitido y estimulado, pero por favor asegúrese de revisar y entender el código antes de enviar una solicitud de tirada.
+
+Puede utilizar agentes de IA en segundo plano y crear una PR con los resultados, pero tendrá que hacer un tenedor de este repositorio y crear una PR con los resultados.
