@@ -1,5 +1,6 @@
 # GitHub Actions workflow: Automatic repository translation using LibreTranslate
 # Trigger: push and pull_request events on the 'develop' branch
+# This workflow translates the repository into the language defined in TARGET_LANG (e.g., "es" or "gl").
 
 name: Translate Repository
 
@@ -21,68 +22,89 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Docker build cache
+
+      # --------------------------------------
+      # 1) Persistent cache for LibreTranslate models (all supported languages)
+      # --------------------------------------
+      - name: Cache LibreTranslate Models
         uses: actions/cache@v4
         with:
-          path: /tmp/.docker-cache
-          key: ${{ runner.os }}-docker-cache-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-docker-cache-
+          path: /tmp/libre_models
+          key: libretranslate-models
+
 
       - name: Install curl
         run: sudo apt-get update && sudo apt-get install -y curl
 
-      - name: Pull LibreTranslate image (cached)
-        run: |
-          mkdir -p /tmp/.docker-cache
-          docker pull libretranslate/libretranslate:latest || true
 
+      # --------------------------------------
+      # 2) Start LibreTranslate container with model volume
+      # --------------------------------------
       - name: Start LibreTranslate container
         id: libre
         run: |
           echo "Starting LibreTranslate container..."
+
           docker run -d --name libretranslate \
             -p 5000:5000 \
+            -v /tmp/libre_models:/usr/share/libretranslate/models \
             -e LT_LOAD_ONLY="en,es,gl" \
             -e LT_DISABLE_WEB_UI=true \
             -e LT_DISABLE_FILES=1 \
-            -e LT_NO_CACHE=1 \
             libretranslate/libretranslate:latest
 
-          echo "Waiting for LibreTranslate to become healthy (up to 4 minutes)..."
-          for i in {1..24}; do
+          echo "Waiting for LibreTranslate health check..."
+          for i in {1..30}; do
             if curl -fs http://localhost:5000/health | grep -q '"status":"ok"'; then
-              echo "LibreTranslate is ready."
+              echo "HTTP health is OK."
               break
             fi
-            echo "Waiting for health check ($i/24)..."
-            sleep 10
+            echo "Waiting for health check ($i/30)..."
+            sleep 5
           done
 
-          # If still not responding, attempt a single restart
-          if ! curl -fs http://localhost:5000/health | grep -q '"status":"ok"'; then
-            echo "Health check failed; restarting LibreTranslate container."
-            docker rm -f libretranslate || true
-            docker run -d --name libretranslate \
-              -p 5000:5000 \
-              -e LT_LOAD_ONLY="en,es,gl" \
-              -e LT_DISABLE_WEB_UI=true \
-              -e LT_DISABLE_FILES=1 \
-              -e LT_NO_CACHE=1 \
-              libretranslate/libretranslate:latest
-            sleep 120
-          fi
-
-          echo "Showing recent container logs..."
+          echo "Container logs (last 40 lines):"
           docker logs libretranslate | tail -n 40
 
-      - name: Test translation (EN → ES)
+
+      # --------------------------------------
+      # 3) Wait until the selected target model is loaded
+      # --------------------------------------
+      - name: Wait for target language model to load
+        env:
+          TARGET_LANG: ${{ env.TARGET_LANG }}
         run: |
-          echo "Testing LibreTranslate API (en → es)..."
+          echo "Checking if model '${TARGET_LANG}' is loaded..."
+          for i in {1..90}; do
+            if curl -s http://localhost:5000/languages | grep -q "\"${TARGET_LANG}\""; then
+              echo "Model '${TARGET_LANG}' is ready!"
+              exit 0
+            fi
+            echo "Model not ready yet ($i/90)..."
+            sleep 5
+          done
+          echo "ERROR: The model '${TARGET_LANG}' did not load in time." >&2
+          docker logs libretranslate | tail -n 200
+          exit 1
+
+
+      # --------------------------------------
+      # 4) Sanity test: translate a sample string (source → TARGET_LANG)
+      # --------------------------------------
+      - name: Test translation
+        env:
+          TARGET_LANG: ${{ env.TARGET_LANG }}
+        run: |
+          echo "Testing translation into '${TARGET_LANG}'..."
           curl -s -X POST http://localhost:5000/translate \
             -H "Content-Type: application/json" \
-            -d '{"q":"hello world","source":"en","target":"es"}' || true
+            -d "{\"q\":\"Hello world\",\"source\":\"en\",\"target\":\"${TARGET_LANG}\"}"
+          echo ""
 
+
+      # --------------------------------------
+      # 5) Set up Python and run translation script
+      # --------------------------------------
       - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
@@ -95,18 +117,22 @@ jobs:
 
       - name: Run translation script
         env:
-          TARGET_LANG: es
-          LOCAL_LIBRE: "1"
+          TARGET_LANG: ${{ env.TARGET_LANG }}
         run: |
-          echo "Running repository translation script..."
+          echo "Running repository translation script (target: ${TARGET_LANG})..."
           python translations/translate_repo.py
 
+
+      # --------------------------------------
+      # 6) Commit and push translated files
+      # --------------------------------------
       - name: Commit and push translated files
+        env:
+          TARGET_LANG: ${{ env.TARGET_LANG }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -B auto/translate/es
+          git checkout -B auto/translate/${TARGET_LANG}
           git add .
-          git commit -m "Auto-translate repository [skip ci]" || echo "No changes to commit"
-          git push -f origin auto/translate/es
-
+          git commit -m "Auto-translate repository to ${TARGET_LANG} [skip ci]" || echo "No changes to commit"
+          git push -f origin auto/translate/${TARGET_LANG}
