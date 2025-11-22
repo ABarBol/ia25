@@ -38,27 +38,34 @@ def safe_translate(translator, text, retries=3, delay=1.5):
 def _protect_placeholders(text):
     """
     Replace regions that must not be altered by machine translation with placeholders.
-
-    The function protects:
-      - inline code fragments enclosed in backticks
-      - HTML comments
-      - HTML tags (to avoid altering attributes)
-      - Markdown images
-      - Markdown links (only the URL part)
-      - plain URLs
-
-    Returns a tuple (protected_text, placeholders_dict).
     """
     placeholders = {}
     idx = 0
 
     def new_ph(kind):
         nonlocal idx
-        ph = f"___PLH_{kind}_{idx}___"
+        ph = f"XPHX{kind}{idx}XPHX" 
         idx += 1
         return ph
 
-    # Inline code `...`
+    # ------------------------------------------------------------
+    # 1. Protect SCRIPT placeholders (___PLH_...___)
+    #    Wrap them so they stay together
+    # ------------------------------------------------------------
+    script_ph_pattern = r'XPHX[A-Za-z]+\d+XPHX'  
+
+    def repl_script_ph(m):
+        original = m.group(0)
+        # Use a unique wrapper that won't be caught by other patterns
+        ph = new_ph("SCRIPTPH")
+        placeholders[ph] = original
+        return ph
+
+    text = re.sub(script_ph_pattern, repl_script_ph, text)
+
+    # ------------------------------------------------------------
+    # 2. Protect inline code `...`
+    # ------------------------------------------------------------
     def repl_code(m):
         ph = new_ph("CODE")
         placeholders[ph] = m.group(0)
@@ -66,7 +73,9 @@ def _protect_placeholders(text):
 
     text = re.sub(r'`[^`]+`', repl_code, text)
 
-    # HTML comments <!-- ... -->
+    # ------------------------------------------------------------
+    # 3. Protect HTML comments <!-- ... -->
+    # ------------------------------------------------------------
     def repl_html_comment(m):
         ph = new_ph("HTMLC")
         placeholders[ph] = m.group(0)
@@ -74,15 +83,23 @@ def _protect_placeholders(text):
 
     text = re.sub(r'<!--[\s\S]*?-->', repl_html_comment, text)
 
-    # Protect HTML tags <...> (including attributes)
+    # ------------------------------------------------------------
+    # 4. Protect HTML tags <...> (but not our placeholders)
+    # ------------------------------------------------------------
     def repl_tag(m):
+        tag = m.group(0)
+        # Skip if it contains our placeholder pattern
+        if '___PLH_' in tag:
+            return tag
         ph = new_ph("TAG")
-        placeholders[ph] = m.group(0)
+        placeholders[ph] = tag
         return ph
 
     text = re.sub(r'<[^>]+>', repl_tag, text)
 
-    # Images ![alt](url)
+    # ------------------------------------------------------------
+    # 5. Protect Markdown images ![alt](url)
+    # ------------------------------------------------------------
     def repl_img(m):
         ph = new_ph("IMG")
         placeholders[ph] = m.group(0)
@@ -90,15 +107,21 @@ def _protect_placeholders(text):
 
     text = re.sub(r'!\[.*?\]\(.*?\)', repl_img, text)
 
-    # Links [text](url) -> protect only the URL (keep visible text)
+    # ------------------------------------------------------------
+    # 6. Protect local Markdown links and URLs inside (...)
+    # ------------------------------------------------------------
     def repl_link(m):
-        ph = new_ph("LINKURL")
-        placeholders[ph] = m.group(2)
-        return f'[{m.group(1)}]({ph})'
+        full = m.group(0)  # captura todo: [label](url)
+        ph = new_ph("LINK")
+        placeholders[ph] = full
+        return ph
+
 
     text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', repl_link, text)
 
-    # Plain URLs (autolinks like <http://...> already protected by TAG)
+    # ------------------------------------------------------------
+    # 7. Protect raw http/https URLs
+    # ------------------------------------------------------------
     def repl_url(m):
         ph = new_ph("URL")
         placeholders[ph] = m.group(0)
@@ -117,45 +140,73 @@ def _restore_placeholders(text, placeholders):
         text = text.replace(ph, orig)
     return text
 
+def translate_link_labels(text, translator):
+    """
+    After restoring placeholders, translate only the text inside [label](url).
+    The URL part remains untouched.
+    """
+    def repl(m):
+        label = m.group(1)
+        url = m.group(2)
+        translated_label = safe_translate(translator, label)
+        return f'[{translated_label}]({url})'
+    
+    return re.sub(r'\[([^\]]+)\]\(([^)]+)\)', repl, text)
 
 def translate_paragraph_lines(lines, translator):
     """
     Translate a block of related lines (a paragraph or a group of list items).
 
-    The function:
-      - preserves each line's prefix (indentation, list marker, blockquote markers, checkboxes)
-      - sends the core content of the block in a single request to preserve coherence
-      - restores placeholders after translation
-
-    Returns a list of translated lines, each ending with a newline.
+    - Detects and preserves prefixes (indentation, list markers, blockquotes, checkboxes, HEADERS).
+    - Sends only the core text to the translator.
+    - Restores placeholders and then reattaches prefixes.
     """
     prefixes = []
     cores = []
 
-    # Support blockquote markers, list markers, ordered lists and task checkboxes.
-    prefix_re = re.compile(r'^(\s*(?:>+\s*)?(?:\d+\.\s+|[-*+]\s+|\[[ xX]\]\s*)?)')
+    # Header prefix: '# ', '## ', '### ', etc.
+    heading_re = re.compile(r'^(\s*#{1,6}\s+)')
+    # Existing prefix logic for lists / quotes / tasks
+    prefix_re = re.compile(
+        r'^(\s*(?:>+\s*)?(?:\d+\.\s+|[-*+]\s+|\[[ xX]\]\s*)?)'
+    )
 
     for line in lines:
-        m = prefix_re.match(line)
-        prefix = m.group(1) if m else ""
+        # 1) Si es encabezado, usamos el prefijo de encabezado
+        m = heading_re.match(line)
+        if m:
+            prefix = m.group(1)
+        else:
+            # 2) Si no, usamos el prefijo "normal" (listas, numeración, etc.)
+            m = prefix_re.match(line)
+            prefix = m.group(1) if m else ""
+
         core = line[len(prefix):].rstrip("\n")
         prefixes.append(prefix)
         cores.append(core)
 
+    # Texto "puro" (sin prefijos de lista / encabezado)
     core_text = "\n".join(cores)
+
+    # Proteger cosas delicadas (links, código, etc.)
     protected_text, placeholders = _protect_placeholders(core_text)
     translated_protected = safe_translate(translator, protected_text)
     translated_core = _restore_placeholders(translated_protected, placeholders)
 
+    # Traducir solo las etiquetas de [texto](url)
+    translated_core = translate_link_labels(translated_core, translator)
+
+    # Volver a separar en líneas
     translated_lines = translated_core.split("\n")
 
+    # Re-enganchar los prefijos originales (incluidos los ##)
     out_lines = []
-    # Reattach prefixes; if count differs, attach remaining translated lines without prefix
     for i, tline in enumerate(translated_lines):
         prefix = prefixes[i] if i < len(prefixes) else ""
         out_lines.append(prefix + tline + "\n")
 
     return out_lines
+
 
 
 def _is_fence_line(line):
@@ -199,8 +250,7 @@ def translate_file(filepath, translator):
             translated_lines.append(line)
             continue
 
-        if line.strip() == "":
-            # Blank line -> flush paragraph and keep blank
+        if re.match(r'^\s*$', line):
             flush_buffer()
             translated_lines.append(line)
             continue
@@ -274,10 +324,18 @@ def translate_notebook(nb_path, translator):
             if in_code_block:
                 translated.append(line)
                 continue
-            if line.strip() == "":
+           # Header detection first
+            if re.match(r'^\s*#{1,6}\s', line):
+                flush_buffer_cell()
+                buffer.append(line)
+                continue
+
+            # Blank line -> normal flush
+            if re.match(r'^\s*$', line):
                 flush_buffer_cell()
                 translated.append(line)
                 continue
+
             buffer.append(line)
 
         flush_buffer_cell()
