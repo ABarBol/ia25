@@ -13,6 +13,9 @@ on:
 permissions:
   contents: write
 
+env:
+  TARGET_LANG: "es"
+
 jobs:
   translate:
     runs-on: ubuntu-latest
@@ -68,7 +71,7 @@ jobs:
 
 
       # --------------------------------------
-      # 3) Wait until the selected target model is loaded
+      # 3) Wait until the selected target language model is loaded
       # --------------------------------------
       - name: Wait for target language model to load
         env:
