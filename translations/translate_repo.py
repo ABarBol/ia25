@@ -2,7 +2,6 @@ import os
 import re
 import time
 from pathlib import Path
-from deep_translator import GoogleTranslator
 import requests
 import nbformat
 
@@ -347,20 +346,10 @@ def get_local_translator():
 
 def translate_repo(root=ROOT_DIR):
     """
-    Translate repository markdown (.md) and notebooks (.ipynb) in-place.
-
-    By default uses GoogleTranslator unless the LOCAL_LIBRE environment variable
-    is set (1/true/True) to use a local LibreTranslate instance.
+    Translates all Markdown (.md) and Jupyter notebooks (.ipynb) in the repository
+    in-place using the local LibreTranslate instance.
     """
-    use_local = os.getenv("LOCAL_LIBRE", "0") in ("1", "true", "True")
-    if use_local:
-        try:
-            translator = get_local_translator()
-        except Exception as exc:
-            print(f"[WARNING] Local translator failed ({exc}), falling back to GoogleTranslator.")
-            translator = GoogleTranslator(source="auto", target=TARGET_LANG)
-    else:
-        translator = GoogleTranslator(source="auto", target=TARGET_LANG)
+    translator = get_local_translator()
 
     md_files = [
         f for f in Path(root).rglob("*.md")
